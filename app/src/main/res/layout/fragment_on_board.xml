@@ -8,28 +8,6 @@
     android:paddingBottom="50dp"
     tools:context=".ui.fragments.onboard.OnBoardFragment">
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/view_pager"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tab_layout"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:backgroundTint="#0E0C0C"
-        android:contentDescription="@string/todo"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tabBackground="@drawable/tab_selected"
-        app:tabGravity="center"
-        app:tabIndicatorHeight="0dp" />
-
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/materialCardView"
         android:layout_width="0dp"
@@ -39,11 +17,12 @@
         app:layout_constraintBottom_toTopOf="@id/tv_description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tab_layout"
+        app:layout_constraintTop_toTopOf="parent"
         app:strokeColor="@color/black"
         app:strokeWidth="2dp">
 
         <ImageView
+            android:id="@+id/image"
             android:layout_width="400dp"
             android:layout_height="400dp"
             android:layout_gravity="center"

@@ -1,7 +1,6 @@
 package com.example.foodtracker.ui.fragments.login
 
-import androidx.lifecycle.ViewModel
+import com.example.foodtracker.base.BaseViewModel
 
-class LogInViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+class LogInViewModel() : BaseViewModel() {
 }
