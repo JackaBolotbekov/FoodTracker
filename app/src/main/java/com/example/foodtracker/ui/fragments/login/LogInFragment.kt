@@ -1,32 +1,16 @@
 package com.example.foodtracker.ui.fragments.login
 
-import androidx.lifecycle.ViewModelProvider
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.foodtracker.R
+import com.example.foodtracker.base.BaseFragment
+import com.example.foodtracker.databinding.FragmentLogInBinding
 
-class LogInFragment : Fragment() {
+class LogInFragment : BaseFragment<FragmentLogInBinding, LogInViewModel>(R.layout.fragment_log_in) {
 
-    companion object {
-        fun newInstance() = LogInFragment()
+    override val binding by viewBinding(FragmentLogInBinding::bind)
+    override val viewModel: LogInViewModel by viewModels()
+
+    override fun setupSubscribes() = with(binding) {
     }
-
-    private lateinit var viewModel: LogInViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_log_in, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(LogInViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
-
 }

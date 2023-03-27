@@ -2,7 +2,12 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:drawable="@drawable/selected_indicator"
-        android:state_selected="true"/>
+        android:state_selected="true">
+        <shape>
+            <padding android:left="5dp"
+                android:right="5dp"/>
+        </shape>
+    </item>
 
-    <item android:drawable="@drawable/default_indicator"/>
+    <item android:drawable="@drawable/default_indicator" />
 </selector>
