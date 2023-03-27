@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".ui.fragments.editdefault.EditDefaultFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/norms_day"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingVertical="10dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="UselessParent">
+
+            <View
+                android:id="@+id/cross"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="start"
+                android:background="@drawable/icon_cross" />
+
+            <View
+                android:id="@+id/swoosh"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="end"
+                android:background="@drawable/icon_swoosh" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/et_edit_norms_day"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="200dp"
+        android:minHeight="50dp"
+        android:autofillHints=""
+        android:background="@drawable/et_oval"
+        android:hint="@string/edit_norms_ccal"
+        android:inputType="text"
+        android:padding="10dp"
+        android:paddingVertical="15dp"
+        android:textColor="@color/gray"
+        android:textColorHint="@color/gray"
+        android:textSize="20sp"
+        tools:ignore="LabelFor" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginVertical="10dp"
+            android:backgroundTint="@color/green"
+            android:paddingVertical="10dp"
+            android:text="@string/save"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            app:cornerRadius="10dp" />
+
+    </FrameLayout>
+
+</LinearLayout>
