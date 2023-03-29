@@ -14,3 +14,6 @@ dependencyResolutionManagement {
 }
 rootProject.name = "FoodTracker"
 include (":app")
+include(":domain")
+include(":data")
+include(":presentation")
