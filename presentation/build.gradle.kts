@@ -1,89 +1,88 @@
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
-    // Kapt
-    kotlin("kapt")
-
-    // Hilt
-    id("com.google.dagger.hilt.android")
+    Plugins.apply {
+        id(androidLibrary)
+        kotlin(android)
+        kotlin(kapt)
+        id(hilt)
+    }
 }
 
 android {
-    namespace = "com.example.presentation"
-    compileSdk = 32
+    namespace = Config.namespacePresentation
+    compileSdk = Config.compileAndTargetSdk
 
     defaultConfig {
-        minSdk = 21
-        targetSdk = 32
+        minSdk = Config.minSdk
+        targetSdk = Config.compileAndTargetSdk
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
+        testInstrumentationRunner = Config.testInstrumentationRunner
+        consumerProguardFiles(Config.consumer)
     }
 
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro")
+            proguardFiles(getDefaultProguardFile(Config.proguard), Config.proguardRules)
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = Config.jvmTarget
     }
+
     buildFeatures.viewBinding = true
 }
 
 dependencies {
+    Dependencies.UIComponents.apply {
+        implementation(core)
+        implementation(appCompat)
+        implementation(material)
+    }
 
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.8.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    Dependencies.Activity.apply {
+        implementation(activity)
+    }
 
-    // Activity
-    val activity_version = "1.6.1"
-    implementation("androidx.activity:activity-ktx:$activity_version")
+    Dependencies.Fragment.apply {
+        implementation(fragment)
+    }
 
-    // Fragment
-    val fragment_version = "1.5.5"
-    implementation("androidx.fragment:fragment-ktx:$fragment_version")
+    Dependencies.Navigation.apply {
+        implementation(navigation)
+        implementation(navigationUi)
+    }
 
-    // Retrofit
-    val retrofit_version = "2.9.0"
-    implementation("com.squareup.retrofit2:retrofit:$retrofit_version")
-    implementation("com.squareup.retrofit2:converter-gson:$retrofit_version")
+    Dependencies.Lifecycle.apply {
+        implementation(lifecycle)
+        implementation(lifecycleRuntime)
+    }
 
-    // OkHttp Client
-    implementation(platform("com.squareup.okhttp3:okhttp-bom:4.10.0"))
-    implementation("com.squareup.okhttp3:okhttp")
-    implementation("com.squareup.okhttp3:logging-interceptor")
+    Dependencies.ViewBinding.apply {
+        implementation(viewBinding)
+    }
 
-    //Hilt
-    implementation("com.google.dagger:hilt-android:2.44")
-    kapt("com.google.dagger:hilt-compiler:2.44")
+    Dependencies.Glide.apply {
+        implementation(glide)
+        annotationProcessor(glideCompiler)
+    }
 
-    // Navigation
-    val nav_version = "2.5.3"
-    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
-    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
+    Dependencies.Hilt.apply {
+        implementation(hilt)
+        kapt(hiltCompiler)
+    }
 
-    // Lifecycles
-    val lifecycle_version = "2.5.1"
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version")
+    Dependencies.Retrofit.apply {
+        implementation(retrofit)
+        implementation(retrofitConverter)
+    }
 
-    // ViewBindingPropertyDelegate
-    implementation("com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.8")
-
-    // Glide
-    implementation("com.github.bumptech.glide:glide:4.14.2")
-    annotationProcessor("com.github.bumptech.glide:compiler:4.14.2")
-
-
+    Dependencies.Domain.apply {
+        implementation(project(domain))
+    }
 }
