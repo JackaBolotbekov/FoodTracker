@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/pagerFragment">
+
+    <fragment
+        android:id="@+id/onBoardFragment"
+        android:name="com.example.presentation.ui.fragments.onboard.OnBoardFragment"
+        android:label="fragment_on_board"
+        tools:layout="@layout/fragment_on_board"/>
+
+    <fragment
+        android:id="@+id/pagerFragment"
+        android:name="com.example.presentation.ui.fragments.onboard.pager.PagerFragment"
+        android:label="fragment_pager"
+        tools:layout="@layout/fragment_pager" >
+        <action
+            android:id="@+id/action_pagerFragment_to_logInFragment"
+            app:destination="@id/logInFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/logInFragment"
+        android:name="com.example.presentation.ui.fragments.login.LogInFragment"
+        android:label="fragment_log_in"
+        tools:layout="@layout/fragment_log_in">
+        <action
+            android:id="@+id/action_logInFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.presentation.ui.fragments.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_addProductFragment"
+            app:destination="@id/addProductFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_editDefaultFragment"
+            app:destination="@id/editDefaultFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addProductFragment"
+        android:name="com.example.presentation.ui.fragments.addproduct.AddProductFragment"
+        android:label="fragment_add_product"
+        tools:layout="@layout/fragment_add_product" />
+
+    <fragment
+        android:id="@+id/editDefaultFragment"
+        android:name="com.example.presentation.ui.fragments.editdefault.EditDefaultFragment"
+        android:label="fragment_edit_default"
+        tools:layout="@layout/fragment_edit_default" />
+
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.example.presentation.ui.fragments.history.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" />
+
+</navigation>

@@ -15,7 +15,7 @@
         android:theme="@style/Theme.FoodTracker"
         tools:targetApi="31">
         <activity
-            android:name=".ui.activity.MainActivity"
+            android:name="com.example.presentation.ui.activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
