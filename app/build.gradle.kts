@@ -66,4 +66,13 @@ dependencies {
     Dependencies.Presentation.apply {
         implementation(project(presentation))
     }
+
+    // data
+    implementation(project(":data"))
+
+    // domain
+    implementation(project(":domain"))
+
+    //presentation
+    implementation(project(":presentation"))
 }

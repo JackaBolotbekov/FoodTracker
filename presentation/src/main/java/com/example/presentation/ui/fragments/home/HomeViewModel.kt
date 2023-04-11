@@ -1,6 +1,7 @@
 package com.example.presentation.ui.fragments.home
 
-import androidx.lifecycle.ViewModel
+import com.example.presentation.base.BaseViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 
-class HomeViewModel : ViewModel() {
-}
+
+class HomeViewModel : BaseViewModel()

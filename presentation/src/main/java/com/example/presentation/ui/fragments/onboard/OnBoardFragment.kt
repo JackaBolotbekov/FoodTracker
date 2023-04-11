@@ -1,38 +1,51 @@
 package com.example.presentation.ui.fragments.onboard
 
-import androidx.fragment.app.viewModels
-import by.kirich1409.viewbindingdelegate.viewBinding
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+//import com.example.foodtracker.PreferencesHelper
 import com.example.presentation.R
-import com.example.presentation.base.BaseFragment
 import com.example.presentation.databinding.FragmentOnBoardBinding
-import com.example.presentation.ui.fragments.login.LogInViewModel
+import com.example.presentation.ui.adapter.PagerAdapter
+import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
 
-class OnBoardFragment : BaseFragment<FragmentOnBoardBinding, LogInViewModel>(R.layout.fragment_on_board) {
+@AndroidEntryPoint
+class OnBoardFragment : Fragment(R.layout.fragment_on_board) {
 
-    override val binding by viewBinding(FragmentOnBoardBinding::bind)
-    override val viewModel: LogInViewModel by viewModels()
+    private lateinit var binding : FragmentOnBoardBinding
+    private lateinit var helper : FragmentOnBoardBinding
 
-    override fun initialize() = with(binding) {
-        when (requireArguments().getInt(KEY)) {
-            0 -> {
-                image.setImageResource(R.drawable.ob1)
-                tvDescription.text = ""
-                tvTitle.setText(R.string.first_title_on_board)
-            }
-            1 -> {
-                tvDescription.setText(R.string.first_description_on_board)
-                image.setImageResource(R.drawable.ob2)
-                tvTitle.setText(R.string.second_title_on_board)
-            }
-            2 -> {
-                tvDescription.setText(R.string.second_description_on_board)
-                tvTitle.setText(R.string.third_title_on_board)
-                image.setImageResource(R.drawable.ob3)
-            }
-        }
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = FragmentOnBoardBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        const val KEY = "onBoard"
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initialize()
+        setupListeners()
+    }
+
+    private fun initialize() = with(binding.viewPager) {
+        adapter = PagerAdapter(this@OnBoardFragment)
+//        PreferencesHelper.unit(requireContext())
+    }
+
+    private fun setupListeners() = with(binding) {
+        TabLayoutMediator(tabLayout, viewPager) { _, _ ->
+        }.attach()
+
+        btnSkip.setOnClickListener {
+            findNavController().navigate(R.id.action_pagerFragment_to_logInFragment)
+//            PreferencesHelper.showOnBoard = true
+        }
     }
 }

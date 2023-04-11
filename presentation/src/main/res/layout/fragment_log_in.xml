@@ -38,7 +38,7 @@
             android:autofillHints=""
             android:background="@drawable/et_oval"
             android:hint="@string/name"
-            android:inputType="text"
+            android:inputType="textMultiLine|textCapSentences"
             android:padding="10dp"
             android:paddingVertical="15dp"
             android:textColor="@color/gray"

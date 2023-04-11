@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:drawable="@drawable/selected_indicator"
+    <item android:drawable="@drawable/tab_green"
         android:state_selected="true">
         <shape>
             <padding android:left="5dp"
@@ -9,5 +9,5 @@
         </shape>
     </item>
 
-    <item android:drawable="@drawable/default_indicator" />
+    <item android:drawable="@drawable/tab_gray" />
 </selector>

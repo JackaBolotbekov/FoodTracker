@@ -3,9 +3,8 @@ package com.example.presentation.ui.adapter
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.presentation.ui.fragments.onboard.OnBoardFragment
-import com.example.presentation.ui.fragments.onboard.OnBoardFragment.Companion.KEY
-import com.example.presentation.ui.fragments.onboard.pager.PagerFragment
+import com.example.presentation.ui.fragments.onboard.OnBoardPagerFragment
+import com.example.presentation.ui.fragments.onboard.OnBoardPagerFragment.Companion.KEY
 
 class PagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
 
@@ -13,11 +12,7 @@ class PagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
         return 3
     }
 
-    override fun createFragment(position: Int) = OnBoardFragment().apply {
-        when(position){
-            0-> OnBoardFragment()
-            1-> PagerFragment()
-        }
+    override fun createFragment(position: Int) = OnBoardPagerFragment().apply {
         arguments = Bundle().apply {
             putInt(KEY, position)
         }

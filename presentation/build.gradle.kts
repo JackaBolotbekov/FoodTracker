@@ -85,4 +85,7 @@ dependencies {
     Dependencies.Domain.apply {
         implementation(project(domain))
     }
+
+    // domain
+    implementation(project(":domain"))
 }
