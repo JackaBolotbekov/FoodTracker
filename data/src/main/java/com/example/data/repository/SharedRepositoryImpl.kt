@@ -1,28 +1,20 @@
 package com.example.data.repository
 
-import com.example.data.storage.model.User
-import com.example.data.storage.sharedpref.UserStorage
-import com.example.domain.models.SaveUserParams
-import com.example.domain.models.UserParams
+import android.content.SharedPreferences
 import com.example.domain.repository.SharedRepository
+import javax.inject.Inject
 
-class SharedRepositoryImpl (private val userStorage: UserStorage) : SharedRepository {
+class SharedRepositoryImpl @Inject constructor(
+    private val sharedPreferences: SharedPreferences
+) : SharedRepository{
 
-    override fun saveName(saveParam: SaveUserParams): Boolean {
-        val user = mapToStorage(saveParam)
-        return userStorage.save(user)
+    override fun saveData(KEY_NAME: String, value: Boolean) {
+        val editor: SharedPreferences.Editor = sharedPreferences.edit()
+        editor.putBoolean(KEY_NAME, value)
+        editor.apply()
     }
 
-    override fun getName(): UserParams {
-        val user = userStorage.get()
-        return mapToDomain(user)
-    }
-
-    private fun mapToStorage(saveParam: SaveUserParams): User {
-        return User(nameLogIn = saveParam.nameLogIn, booleanOnBoard = saveParam.booleanOnBoard, booleanLogIn = saveParam.booleanLogIn)
-    }
-
-    private fun mapToDomain(user: User) : UserParams {
-        return UserParams(nameLogIn = user.nameLogIn, booleanOnBoard = user.booleanOnBoard, booleanLogIn = user.booleanLogIn)
+    override fun getData(KEY_NAME: String): Boolean {
+        return sharedPreferences.getBoolean(KEY_NAME, false)
     }
 }

@@ -1,11 +1,9 @@
 package com.example.domain.repository
 
-import com.example.domain.models.SaveUserParams
-import com.example.domain.models.UserParams
-
 interface SharedRepository {
 
-    fun saveName(saveParam: SaveUserParams): Boolean
+    fun saveData(KEY_NAME: String, value : Boolean)
 
-    fun getName(): UserParams
+    fun getData(KEY_NAME: String) : Boolean
+
 }

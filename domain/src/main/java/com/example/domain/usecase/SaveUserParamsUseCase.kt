@@ -1,11 +1,14 @@
 package com.example.domain.usecase
 
-import com.example.domain.models.SaveUserParams
 import com.example.domain.repository.SharedRepository
+import javax.inject.Inject
 
-class SaveUserParamsUseCase(private val userRepository: SharedRepository) {
+class SaveUserParamsUseCase @Inject constructor(
+    private val sharedRepository: SharedRepository
+) {
 
-    fun execute(params: SaveUserParams): Boolean {
-        return userRepository.saveName(saveParam = params)
-    }
+    fun saveData(key: String, value: Boolean)
+    = sharedRepository.saveData(key, value)
+
+    fun getData(key: String) = sharedRepository.getData(key)
 }

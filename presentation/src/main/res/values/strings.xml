@@ -23,4 +23,8 @@
     <string name="history">История</string>
     <string name="date">12.12.2022г</string>
     <string name="main">Главная</string>
+    // SharedPreference
+    <string name="key_shared">key_shared</string>
+    <string name="key_name">key_name</string>
+    <string name="key_log_in">key_log_in</string>
 </resources>
