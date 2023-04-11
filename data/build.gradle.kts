@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.data"
+    namespace = Config.namespaceData
     compileSdk = Config.compileAndTargetSdk
 
     defaultConfig {

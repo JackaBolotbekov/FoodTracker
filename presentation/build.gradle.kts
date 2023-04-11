@@ -13,7 +13,6 @@ android {
 
     defaultConfig {
         minSdk = Config.minSdk
-        targetSdk = Config.compileAndTargetSdk
 
         testInstrumentationRunner = Config.testInstrumentationRunner
         consumerProguardFiles(Config.consumer)
