@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="50dp"
+    android:paddingBottom="@dimen/padding_bottom"
     tools:context=".ui.fragments.onboard.OnBoardFragment">
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/view_pager"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/fragment_container"
+        android:layout_height="@dimen/fragment_container"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,28 +18,27 @@
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"
-        android:layout_width="300dp"
-        android:layout_height="6dp"
+        android:layout_width="@dimen/tab_with"
+        android:layout_height="@dimen/tab_height"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tabBackground="@drawable/tab_selected"
-        app:tabIndicatorHeight="0dp" />
+        app:tabIndicatorHeight="@dimen/fragment_container" />
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/btn_skip"
-        style="@style/TextAppearance.AppCompat.Widget.TextView.SpinnerItem"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/fragment_container"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
+        android:layout_marginHorizontal="@dimen/margin_horizontal"
+        android:background="@drawable/et_oval"
         android:backgroundTint="@color/green"
-        android:paddingVertical="10dp"
+        android:fontFamily="@font/comfortaa"
+        android:paddingVertical="@dimen/padding_vertical"
         android:text="@string/skip"
         android:textAllCaps="false"
         android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="italic"
-        app:cornerRadius="10dp"
+        android:textSize="@dimen/btn_text_size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

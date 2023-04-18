@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
+        android:layout_marginHorizontal="@dimen/margin_horizontal"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -22,44 +22,43 @@
             android:id="@+id/text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="@dimen/margin_vertical"
+            android:fontFamily="@font/dela_gothic_one"
             android:gravity="center"
-            android:paddingVertical="15dp"
+            android:paddingVertical="@dimen/padding_vertical"
             android:text="@string/registration"
             android:textColor="@color/black"
-            android:textSize="40sp"
-            android:textStyle="bold" />
+            android:textSize="@dimen/size_text_registration" />
 
         <EditText
             android:id="@+id/et_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
+            android:layout_marginVertical="@dimen/margin_vertical"
             android:autofillHints=""
             android:background="@drawable/et_oval"
+            android:fontFamily="@font/comfortaa"
             android:hint="@string/name"
             android:inputType="textMultiLine|textCapSentences"
-            android:padding="10dp"
-            android:paddingVertical="15dp"
+            android:padding="@dimen/padding_vertical"
             android:textColor="@color/gray"
             android:textColorHint="@color/gray"
-            android:textSize="20sp"
+            android:textSize="@dimen/et_text_size"
             tools:ignore="LabelFor" />
 
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/btn_skip"
-            style="@style/TextAppearance.AppCompat.Widget.TextView.SpinnerItem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
+            android:layout_marginVertical="@dimen/margin_vertical"
+            android:background="@drawable/et_oval"
             android:backgroundTint="@color/green"
-            android:paddingVertical="10dp"
+            android:fontFamily="@font/comfortaa"
+            android:paddingVertical="@dimen/padding_vertical"
             android:text="@string/login"
             android:textAllCaps="false"
             android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="italic"
-            app:cornerRadius="10dp" />
+            android:textSize="@dimen/btn_text_size" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

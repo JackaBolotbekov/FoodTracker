@@ -1,65 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp"
+    android:padding="@dimen/padding_main_container"
     tools:context=".ui.fragments.editdefault.EditDefaultFragment">
 
     <TextView
+        android:id="@+id/tv_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/dela_gothic_one"
         android:text="@string/norms_day"
         android:textColor="@color/black"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+        android:textSize="@dimen/size_text_title" />
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingVertical="10dp">
+        android:paddingVertical="@dimen/padding_vertical"
+        tools:ignore="UselessParent">
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:ignore="UselessParent">
+        <View
+            android:id="@+id/cross"
+            android:layout_width="@dimen/view_add_product"
+            android:layout_height="@dimen/view_add_product"
+            android:layout_gravity="start"
+            android:background="@drawable/icon_cross" />
 
-            <View
-                android:id="@+id/cross"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="start"
-                android:background="@drawable/icon_cross" />
+        <View
+            android:id="@+id/swoosh"
+            android:layout_width="@dimen/view_add_product"
+            android:layout_height="@dimen/view_add_product"
+            android:layout_gravity="end"
+            android:background="@drawable/icon_swoosh" />
 
-            <View
-                android:id="@+id/swoosh"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="end"
-                android:background="@drawable/icon_swoosh" />
-
-        </FrameLayout>
-
-    </LinearLayout>
+    </FrameLayout>
 
     <EditText
         android:id="@+id/et_edit_norms_day"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minWidth="200dp"
-        android:minHeight="50dp"
         android:autofillHints=""
         android:background="@drawable/et_oval"
+        android:fontFamily="@font/comfortaa"
         android:hint="@string/edit_norms_ccal"
         android:inputType="text"
-        android:padding="10dp"
-        android:paddingVertical="15dp"
+        android:minWidth="@dimen/et_min_with"
+        android:minHeight="@dimen/et_min_height"
+        android:padding="@dimen/et_padding"
+        android:paddingVertical="@dimen/padding_vertical"
         android:textColor="@color/gray"
         android:textColorHint="@color/gray"
-        android:textSize="20sp"
+        android:textSize="@dimen/et_text_size"
         tools:ignore="LabelFor" />
 
     <FrameLayout
@@ -67,20 +61,20 @@
         android:layout_height="match_parent"
         android:layout_gravity="bottom">
 
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/btn_save"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:layout_marginVertical="10dp"
+            android:layout_marginVertical="@dimen/margin_vertical"
+            android:background="@drawable/et_oval"
             android:backgroundTint="@color/green"
-            android:paddingVertical="10dp"
+            android:fontFamily="@font/comfortaa"
+            android:paddingVertical="@dimen/padding_vertical"
             android:text="@string/save"
             android:textAllCaps="false"
             android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="italic"
-            app:cornerRadius="10dp" />
+            android:textSize="@dimen/btn_text_size" />
 
     </FrameLayout>
 
