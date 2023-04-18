@@ -2,7 +2,6 @@ package com.example.foodtracker.di
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.example.foodtracker.R
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,7 +15,10 @@ object LocalModule {
 
     @Singleton
     @Provides
-    fun providePreferencesHelper(@ApplicationContext context: Context): SharedPreferences{
-        return context.getSharedPreferences(context.getString(com.example.presentation.R.string.key_shared), Context.MODE_PRIVATE)
+    fun provideSingleDisplay(@ApplicationContext context: Context): SharedPreferences {
+        return context.getSharedPreferences(
+            context.getString(com.example.presentation.R.string.key_shared),
+            Context.MODE_PRIVATE
+        )
     }
 }

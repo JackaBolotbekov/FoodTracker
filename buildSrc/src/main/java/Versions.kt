@@ -15,4 +15,5 @@ object Versions {
     const val activity = "1.6.1"
     const val coroutines = "1.6.4"
     const val inject = "1"
+    const val dotsIndicator = "4.3"
 }

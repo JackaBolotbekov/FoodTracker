@@ -8,7 +8,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.viewbinding.ViewBinding
-import com.example.domain.models.SaveUserParams
 import com.example.presentation.ui.state.UIState
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch

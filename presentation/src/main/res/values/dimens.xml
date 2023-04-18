@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- My custom dimen -->
+
+    // Add Product Fragment
+    <dimen name="fragment_container">0dp</dimen>
+    <dimen name="padding_add_product">20dp</dimen>
+    <dimen name="size_text_new_entry">24sp</dimen>
+    <dimen name="padding_vertical_add_product">10dp</dimen>
+    <dimen name="margin_vertical_add_product">10dp</dimen>
+    <dimen name="view_add_product">30dp</dimen>
+    <dimen name="et_min_with">200dp</dimen>
+    <dimen name="et_min_height">50dp</dimen>
+    <dimen name="et_padding">10dp</dimen>
+    <dimen name="et_text_size">16sp</dimen>
+    <dimen name="btn_text_size">18sp</dimen>
+
+    //
+</resources>

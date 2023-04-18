@@ -5,6 +5,7 @@ plugins {
         kotlin(kapt)
         id(hilt)
     }
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -43,6 +44,7 @@ android {
 }
 
 dependencies {
+    implementation("com.google.firebase:firebase-firestore-ktx:24.1.1")
     Dependencies.UIComponents.apply {
         implementation(core)
         implementation(appCompat)

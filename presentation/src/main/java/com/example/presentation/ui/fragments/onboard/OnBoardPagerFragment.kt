@@ -1,32 +1,23 @@
 package com.example.presentation.ui.fragments.onboard
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.presentation.R
+import com.example.presentation.base.BaseFragment
 import com.example.presentation.databinding.FragmentOnBoardPagerBinding
+import com.example.presentation.ui.fragments.login.LogInViewModel
 
-class OnBoardPagerFragment : Fragment(R.layout.fragment_on_board_pager) {
+class OnBoardPagerFragment :
+    BaseFragment<FragmentOnBoardPagerBinding, LogInViewModel>(R.layout.fragment_on_board_pager) {
 
-    private lateinit var binding : FragmentOnBoardPagerBinding
+    override val binding by viewBinding(FragmentOnBoardPagerBinding::bind)
+    override val viewModel: LogInViewModel by viewModels()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentOnBoardPagerBinding.inflate(inflater, container, false)
-        return binding.root
+    override fun setupSubscribes() {
+        subscribePosition()
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        initialize()
-    }
-
-    private fun initialize() = with(binding) {
+    private fun subscribePosition() = with(binding) {
         when (requireArguments().getInt(KEY)) {
             0 -> {
                 image.setImageResource(R.drawable.ob1)

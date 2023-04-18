@@ -1,8 +1,8 @@
 package com.example.foodtracker.di
 
 import android.content.SharedPreferences
-import com.example.data.repository.SharedRepositoryImpl
-import com.example.domain.repository.SharedRepository
+import com.example.data.repositories.UserInfoRepositoryImpl
+import com.example.domain.repositories.UserInfoRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,7 +15,7 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideRepository(sharedPreferences: SharedPreferences) : SharedRepository {
-        return SharedRepositoryImpl(sharedPreferences)
+    fun provideRepository(sharedPreferences: SharedPreferences): UserInfoRepository {
+        return UserInfoRepositoryImpl(sharedPreferences)
     }
 }

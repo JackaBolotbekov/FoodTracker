@@ -1,34 +1,16 @@
 package com.example.presentation.ui.fragments.addproduct
 
-import androidx.lifecycle.ViewModelProvider
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.presentation.R
+import com.example.presentation.base.BaseFragment
+import com.example.presentation.databinding.FragmentAddProductBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class AddProductFragment : Fragment() {
+class AddProductFragment :
+    BaseFragment<FragmentAddProductBinding, AddProductViewModel>(R.layout.fragment_add_product) {
 
-    companion object {
-        fun newInstance() = AddProductFragment()
-    }
-
-    private lateinit var viewModel: AddProductViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_add_product, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(AddProductViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
-
+    override val binding by viewBinding(FragmentAddProductBinding::bind)
+    override val viewModel: AddProductViewModel by viewModels()
 }

@@ -19,7 +19,6 @@
         <action
             android:id="@+id/action_pagerFragment_to_logInFragment"
             app:popUpTo="@id/pagerFragment"
-            app:popUpToInclusive="true"
             app:destination="@id/logInFragment" />
     </fragment>
 

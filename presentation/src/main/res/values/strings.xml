@@ -2,7 +2,7 @@
     <string name="app_name">FoodTracker</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="skip">Пропусmиmь</string>
+    <string name="skip">Пропустить</string>
     <string name="todo">TODO</string>
     // title OnBoard
     <string name="first_title_on_board">Добро пожаловать в FoodTracker</string>
@@ -27,4 +27,7 @@
     <string name="key_shared">key_shared</string>
     <string name="key_name">key_name</string>
     <string name="key_log_in">key_log_in</string>
+    // error text
+    <string name="add_field">Заолните поле</string>
+    <string name="small_name">Слишком короткое имя</string>
 </resources>

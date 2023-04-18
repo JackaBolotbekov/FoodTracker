@@ -63,6 +63,10 @@ object Dependencies {
         const val inject = "javax.inject:javax.inject:${Versions.inject}"
     }
 
+    object DotsIndicator {
+        const val dotsIndicator = "com.tbuonomo:dotsindicator:${Versions.dotsIndicator}"
+    }
+
     object Domain {
         const val domain = ":domain"
     }

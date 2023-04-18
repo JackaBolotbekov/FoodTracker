@@ -1,51 +1,38 @@
 package com.example.presentation.ui.fragments.onboard
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-//import com.example.foodtracker.PreferencesHelper
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.presentation.R
+import com.example.presentation.base.BaseFragment
 import com.example.presentation.databinding.FragmentOnBoardBinding
-import com.example.presentation.ui.adapter.PagerAdapter
+import com.example.presentation.ui.adapter.OnBoardPagerAdapter
+import com.example.presentation.ui.fragments.login.LogInViewModel
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class OnBoardFragment : Fragment(R.layout.fragment_on_board) {
+class OnBoardFragment : BaseFragment<FragmentOnBoardBinding, LogInViewModel>(R.layout.fragment_on_board) {
 
-    private lateinit var binding : FragmentOnBoardBinding
-    private lateinit var helper : FragmentOnBoardBinding
+    override val binding by viewBinding(FragmentOnBoardBinding::bind)
+    override val viewModel: LogInViewModel by viewModels()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentOnBoardBinding.inflate(inflater, container, false)
-        return binding.root
+    override fun initialize() {
+        initial()
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        initialize()
-        setupListeners()
+    override fun setupListeners() {
+        setupListener()
     }
 
-    private fun initialize() = with(binding.viewPager) {
-        adapter = PagerAdapter(this@OnBoardFragment)
-//        PreferencesHelper.unit(requireContext())
+    private fun initial() = with(binding.viewPager) {
+        adapter = OnBoardPagerAdapter(this@OnBoardFragment)
+        TabLayoutMediator(binding.tabLayout, this) { _, _ -> }.attach()
     }
 
-    private fun setupListeners() = with(binding) {
-        TabLayoutMediator(tabLayout, viewPager) { _, _ ->
-        }.attach()
-
+    private fun setupListener() = with(binding) {
         btnSkip.setOnClickListener {
             findNavController().navigate(R.id.action_pagerFragment_to_logInFragment)
-//            PreferencesHelper.showOnBoard = true
         }
     }
 }

@@ -1,12 +1,9 @@
 package com.example.presentation.ui.fragments.login
 
 
-import com.example.domain.usecase.SaveUserParamsUseCase
+import com.example.domain.usecases.SaveUserParamsUseCase
 import com.example.presentation.base.BaseViewModel
-import com.example.presentation.model.SaveUserParamsUI
-import com.example.presentation.model.toUI
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
 
 @HiltViewModel

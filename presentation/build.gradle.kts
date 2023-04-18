@@ -81,10 +81,13 @@ dependencies {
         implementation(retrofitConverter)
     }
 
+    Dependencies.DotsIndicator.apply {
+        implementation(dotsIndicator)
+    }
+
+//    implementation ("androidx.core:core-splashscreen:1.1.0-alpha01")
+
     Dependencies.Domain.apply {
         implementation(project(domain))
     }
-
-    // domain
-    implementation(project(":domain"))
 }
