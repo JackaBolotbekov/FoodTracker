@@ -67,6 +67,15 @@ object Dependencies {
         const val dotsIndicator = "com.tbuonomo:dotsindicator:${Versions.dotsIndicator}"
     }
 
+    object Firebase {
+        const val firestore = "com.google.firebase:firebase-firestore-ktx:${Versions.firestore}"
+        const val googleServices = "com.google.gms:google-services:${Versions.googleServices}"
+    }
+
+    object BuildGradle {
+        const val buildGradle = "com.android.tools.build:gradle:${Versions.buildGradle}"
+    }
+
     object Domain {
         const val domain = ":domain"
     }

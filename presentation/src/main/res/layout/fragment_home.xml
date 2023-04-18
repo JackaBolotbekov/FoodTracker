@@ -1,112 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp"
+    android:padding="@dimen/padding_main_container"
     tools:context=".ui.fragments.home.HomeFragment">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="horizontal">
+        android:fontFamily="@font/dela_gothic_one"
+        android:text="@string/main"
+        android:textColor="@color/black"
+        android:textSize="@dimen/size_text_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/main"
-            android:textColor="@color/black"
-            android:textSize="30sp"
-            android:textStyle="bold" />
+    <View
+        android:id="@+id/btn_history"
+        android:layout_width="@dimen/view_home"
+        android:layout_height="@dimen/view_home"
+        android:layout_gravity="end|center_vertical"
+        android:layout_marginHorizontal="@dimen/margin_vertical"
+        android:background="@drawable/icon_history"
+        app:layout_constraintEnd_toStartOf="@+id/btn_edit"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <View
+        android:id="@+id/btn_edit"
+        android:layout_width="@dimen/view_add_product"
+        android:layout_height="@dimen/view_add_product"
+        android:layout_gravity="end|center_vertical"
+        android:background="@drawable/icon_edit"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_history"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_history" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end|center_vertical"
-                android:orientation="horizontal"
-                tools:ignore="UselessParent">
-
-                <View
-                    android:id="@+id/btn_history"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="end|center_vertical"
-                    android:layout_marginHorizontal="15dp"
-                    android:background="@drawable/icon_history" />
-
-                <View
-                    android:id="@+id/btn_edit"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="end|center_vertical"
-                    android:background="@drawable/icon_edit" />
-
-            </LinearLayout>
-
-        </FrameLayout>
-
-    </LinearLayout>
 
     <View
         android:id="@+id/progress_bar"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:background="@drawable/progress_bar" />
+        android:layout_height="@dimen/view_progress_bar_height"
+        android:layout_marginVertical="@dimen/padding_vertical"
+        android:background="@drawable/progress_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="start|center_vertical">
+    <View
+        android:id="@+id/btn_grid"
+        android:layout_width="@dimen/view_add_product"
+        android:layout_height="@dimen/view_add_product"
+        android:layout_marginVertical="@dimen/margin_vertical"
+        android:background="@drawable/rv_grid"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progress_bar" />
 
-        <View
-            android:id="@+id/btn_grid"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginVertical="10dp"
-            android:background="@drawable/rv_grid" />
 
-        <View
-            android:id="@+id/btn_linear"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginVertical="10dp"
-            android:background="@drawable/rv_linear"
-            android:visibility="invisible" />
-
-    </FrameLayout>
-
-    <FrameLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_home"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingVertical="@dimen/padding_vertical"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_grid"
+        app:spanCount="2" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_home"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:paddingVertical="10dp"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:spanCount="2" />
+    <ImageView
+        android:id="@+id/btn_add"
+        android:layout_width="@dimen/size_btn_add"
+        android:layout_height="@dimen/size_btn_add"
+        android:layout_gravity="end|bottom"
+        android:background="@drawable/icon_add"
+        android:contentDescription="@string/todo"
+        android:padding="@dimen/et_padding"
+        android:src="@drawable/icon_plus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <ImageView
-            android:id="@+id/btn_add"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="end|bottom"
-            android:layout_marginBottom="15dp"
-            android:background="@drawable/icon_add"
-            android:contentDescription="@string/todo"
-            android:padding="10dp"
-            android:src="@drawable/icon_plus" />
-
-    </FrameLayout>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,4 +16,8 @@ object Versions {
     const val coroutines = "1.6.4"
     const val inject = "1"
     const val dotsIndicator = "4.3"
+    const val firestore = "24.4.5"
+
+    const val buildGradle = "7.4.2"
+    const val googleServices = "4.3.15"
 }

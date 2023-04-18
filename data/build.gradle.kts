@@ -4,6 +4,7 @@ plugins {
         kotlin(android)
         kotlin(kapt)
         id(hilt)
+        id(googleServices)
     }
 }
 
@@ -55,6 +56,11 @@ dependencies {
         // Hilt
         implementation(hilt)
         kapt(hiltCompiler)
+    }
+
+    Dependencies.Firebase.apply {
+        // Firestore
+        implementation(firestore)
     }
 
     // domain

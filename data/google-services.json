@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "17476221788",
+    "project_id": "foodtracker-ffedc",
+    "storage_bucket": "foodtracker-ffedc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:17476221788:android:51c54e47665046e819df99",
+        "android_client_info": {
+          "package_name": "com.example.data"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "17476221788-g5l71c0sntbf8963jep7j5lded3b8drf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.data",
+            "certificate_hash": "f699b9bdb9ee119c62b9b31524a5a352640b965d"
+          }
+        },
+        {
+          "client_id": "17476221788-4qllm1ghrocag0se69dofckqi6cf29dc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAamhDkBwygP7gRreL7b8XzlNvpNRgOcDQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "17476221788-4qllm1ghrocag0se69dofckqi6cf29dc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

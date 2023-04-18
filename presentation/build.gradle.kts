@@ -4,6 +4,7 @@ plugins {
         kotlin(android)
         kotlin(kapt)
         id(hilt)
+        id(googleServices)
     }
 }
 
@@ -83,6 +84,10 @@ dependencies {
 
     Dependencies.DotsIndicator.apply {
         implementation(dotsIndicator)
+    }
+
+    Dependencies.Firebase.apply {
+        implementation(firestore)
     }
 
 //    implementation ("androidx.core:core-splashscreen:1.1.0-alpha01")

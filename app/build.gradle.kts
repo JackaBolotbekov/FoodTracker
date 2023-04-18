@@ -4,8 +4,8 @@ plugins {
         kotlin(android)
         kotlin(kapt)
         id(hilt)
+        id(googleServices)
     }
-    id("com.google.gms.google-services")
 }
 
 android {
@@ -44,7 +44,6 @@ android {
 }
 
 dependencies {
-    implementation("com.google.firebase:firebase-firestore-ktx:24.1.1")
     Dependencies.UIComponents.apply {
         implementation(core)
         implementation(appCompat)
@@ -55,6 +54,11 @@ dependencies {
     Dependencies.Hilt.apply {
         implementation(hilt)
         kapt(hiltCompiler)
+    }
+
+    Dependencies.Firebase.apply {
+        // Firestore
+        implementation(firestore)
     }
 
     Dependencies.Domain.apply {
@@ -68,13 +72,4 @@ dependencies {
     Dependencies.Presentation.apply {
         implementation(project(presentation))
     }
-
-    // data
-    implementation(project(":data"))
-
-    // domain
-    implementation(project(":domain"))
-
-    //presentation
-    implementation(project(":presentation"))
 }

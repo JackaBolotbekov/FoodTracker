@@ -2,12 +2,12 @@
 <resources>
     <!-- My custom dimen -->
 
-    // Add Product Fragment
+    // Add Product Fragment and Edit Default Fragment
     <dimen name="fragment_container">0dp</dimen>
-    <dimen name="padding_add_product">20dp</dimen>
-    <dimen name="size_text_new_entry">24sp</dimen>
-    <dimen name="padding_vertical_add_product">10dp</dimen>
-    <dimen name="margin_vertical_add_product">10dp</dimen>
+    <dimen name="padding_main_container">20dp</dimen>
+    <dimen name="size_text_title">24sp</dimen>
+    <dimen name="padding_vertical">10dp</dimen>
+    <dimen name="margin_vertical">10dp</dimen>
     <dimen name="view_add_product">30dp</dimen>
     <dimen name="et_min_with">200dp</dimen>
     <dimen name="et_min_height">50dp</dimen>
@@ -15,5 +15,19 @@
     <dimen name="et_text_size">16sp</dimen>
     <dimen name="btn_text_size">18sp</dimen>
 
-    //
+    // History Fragment
+    <dimen name="view_home">40dp</dimen>
+    <dimen name="view_progress_bar_height">350dp</dimen>
+    <dimen name="size_btn_add">56dp</dimen>
+    <dimen name="size_text_registration">38sp</dimen>
+    <dimen name="margin_horizontal">2dp</dimen>
+    <dimen name="padding_bottom">50dp</dimen>
+    <dimen name="tab_with">300dp</dimen>
+    <dimen name="tab_height">6dp</dimen>
+    <dimen name="padding_horizontal">15dp</dimen>
+    <dimen name="tab_radius">15dp</dimen>
+    <dimen name="margin_top">15dp</dimen>
+    <dimen name="stroke_with">2dp</dimen>
+    <dimen name="height_iv_on_board">400dp</dimen>
+    <dimen name="padding_5dp">5dp</dimen>
 </resources>
