@@ -22,6 +22,9 @@
     <string name="edit_norms_ccal">Норма калорий в день</string>
     <string name="history">История</string>
     <string name="date">12.12.2022г</string>
+    <string name="calorie">1006 ккалорий</string>
+    <string name="title_item_home">Куриное филе</string>
+    <string name="calorie_item_home">100гр - 154ккал</string>
     <string name="main">Главная</string>
     // SharedPreference
     <string name="key_shared">key_shared</string>
@@ -30,4 +33,8 @@
     // error text
     <string name="add_field">Заолните поле</string>
     <string name="small_name">Слишком короткое имя</string>
+    <string name="number_1800">1800</string>
+    <string name="number_0">0</string>
+    <integer-array name="number_0">0</integer-array>
+    <string name="text_calories">ккал</string>
 </resources>

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- My custom dimen -->
-
-    // Add Product Fragment and Edit Default Fragment
     <dimen name="fragment_container">0dp</dimen>
     <dimen name="padding_main_container">20dp</dimen>
     <dimen name="size_text_title">24sp</dimen>
@@ -15,7 +13,6 @@
     <dimen name="et_text_size">16sp</dimen>
     <dimen name="btn_text_size">18sp</dimen>
 
-    // History Fragment
     <dimen name="view_home">40dp</dimen>
     <dimen name="view_progress_bar_height">350dp</dimen>
     <dimen name="size_btn_add">56dp</dimen>
@@ -23,11 +20,14 @@
     <dimen name="margin_horizontal">2dp</dimen>
     <dimen name="padding_bottom">50dp</dimen>
     <dimen name="tab_with">300dp</dimen>
+    <dimen name="dp_330">330dp</dimen>
     <dimen name="tab_height">6dp</dimen>
-    <dimen name="padding_horizontal">15dp</dimen>
-    <dimen name="tab_radius">15dp</dimen>
-    <dimen name="margin_top">15dp</dimen>
+    <dimen name="padding_horizontal">16dp</dimen>
+    <dimen name="tab_radius">16dp</dimen>
+    <dimen name="margin_top">16dp</dimen>
+    <dimen name="margin_bottom">30dp</dimen>
     <dimen name="stroke_with">2dp</dimen>
     <dimen name="height_iv_on_board">400dp</dimen>
-    <dimen name="padding_5dp">5dp</dimen>
+    <dimen name="padding_6dp">6dp</dimen>
+    <dimen name="dp_44">44sp</dimen>
 </resources>

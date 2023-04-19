@@ -56,7 +56,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/comfortaa"
             android:gravity="center"
-            android:padding="@dimen/padding_5dp"
+            android:padding="@dimen/padding_6dp"
             android:textColor="@color/dark_gray"
             android:textSize="@dimen/btn_text_size"
             tools:text="@string/first_description_on_board" />

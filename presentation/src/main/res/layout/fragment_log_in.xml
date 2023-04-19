@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/margin_horizontal"
+        android:layout_marginHorizontal="20dp"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -23,21 +23,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/margin_vertical"
-            android:fontFamily="@font/dela_gothic_one"
             android:gravity="center"
             android:paddingVertical="@dimen/padding_vertical"
             android:text="@string/registration"
             android:textColor="@color/black"
-            android:textSize="@dimen/size_text_registration" />
+            android:textSize="@dimen/size_text_registration"
+            android:fontFamily="@font/dela_gothic_one" />
 
         <EditText
             android:id="@+id/et_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/comfortaa"
             android:layout_marginVertical="@dimen/margin_vertical"
             android:autofillHints=""
             android:background="@drawable/et_oval"
-            android:fontFamily="@font/comfortaa"
             android:hint="@string/name"
             android:inputType="textMultiLine|textCapSentences"
             android:padding="@dimen/padding_vertical"

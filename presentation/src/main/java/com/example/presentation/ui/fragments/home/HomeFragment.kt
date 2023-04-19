@@ -13,14 +13,40 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
 
     override val binding by viewBinding(FragmentHomeBinding::bind)
     override val viewModel: HomeViewModel by viewModels()
+    var progress = 0
+
+    override fun initialize() {
+        initial()
+    }
 
     override fun setupListeners() {
         click()
     }
 
-    private fun click() {
-        binding.btnAdd.setOnClickListener {
+    private fun initial() = with(binding) {
+        tvNumberCalories.setText(R.string.number_0)
+    }
+
+    private fun click() = with(binding) {
+        btnAdd.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_addProductFragment)
         }
+        btnEdit.setOnClickListener {
+            if (progress >= 10) {
+                progress -= 10
+                updateProgressBar()
+            }
+        }
+        btnHistory.setOnClickListener {
+            if (progress <= 90) {
+                progress += 10
+                updateProgressBar()
+            }
+        }
+    }
+
+    fun updateProgressBar() = with(binding) {
+        progressBar.progress = progress
+        tvNumberCalories.text = progress.toString()
     }
 }
