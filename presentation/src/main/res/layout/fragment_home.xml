@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="@dimen/padding_main_container"
+    android:padding="@dimen/padding_horizontal"
     tools:context=".ui.fragments.home.HomeFragment">
 
     <TextView
@@ -39,7 +39,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/btn_history" />
 
-
     <View
         android:id="@+id/progress_bar"
         android:layout_width="match_parent"
@@ -54,9 +53,21 @@
         android:id="@+id/btn_grid"
         android:layout_width="@dimen/view_add_product"
         android:layout_height="@dimen/view_add_product"
+        android:layout_marginHorizontal="@dimen/padding_6dp"
         android:layout_marginVertical="@dimen/margin_vertical"
         android:background="@drawable/rv_grid"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/rv_home"
+        app:layout_constraintTop_toBottomOf="@+id/progress_bar" />
+
+    <View
+        android:id="@+id/btn_linear"
+        android:layout_width="@dimen/view_add_product"
+        android:layout_height="@dimen/view_add_product"
+        android:layout_marginHorizontal="@dimen/padding_6dp"
+        android:layout_marginVertical="@dimen/margin_vertical"
+        android:background="@drawable/rv_linear"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@+id/rv_home"
         app:layout_constraintTop_toBottomOf="@+id/progress_bar" />
 
 
@@ -67,11 +78,11 @@
         android:layout_gravity="center"
         android:paddingVertical="@dimen/padding_vertical"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_grid"
-        app:spanCount="2" />
+        app:spanCount="2"
+        tools:listitem="@layout/item_home_grid" />
 
     <ImageView
         android:id="@+id/btn_add"
