@@ -13,7 +13,8 @@ class HomeAdapter : ListAdapter<NoteDto, HomeAdapter.ViewHolder>(diffUtil) {
     inner class ViewHolder(private val binding: ItemHomeBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(model: NoteDto) {
-            binding.data.text = model.data
+            binding.time.text = model.time
+            binding.text.text = model.message
         }
     }
 
@@ -36,7 +37,7 @@ class HomeAdapter : ListAdapter<NoteDto, HomeAdapter.ViewHolder>(diffUtil) {
     companion object {
         val diffUtil = object : DiffUtil.ItemCallback<NoteDto>() {
             override fun areItemsTheSame(oldItem: NoteDto, newItem: NoteDto): Boolean {
-                return oldItem.data == newItem.data
+                return oldItem.time == newItem.time
             }
 
             override fun areContentsTheSame(oldItem: NoteDto, newItem: NoteDto): Boolean {
