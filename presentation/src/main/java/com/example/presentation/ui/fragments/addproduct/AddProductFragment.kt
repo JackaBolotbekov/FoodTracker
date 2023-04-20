@@ -41,18 +41,8 @@ class AddProductFragment :
         val user = hashMapOf(
             "message" to messageText, "time" to timeText
         )
-        db.collection("user").document().set(user).addOnSuccessListener {}
+
+        db.collection("user").document("new").set(user).addOnSuccessListener {}
         findNavController().navigateUp()
     }
 }
-//    override fun setupSubscribes() {
-//        binding.btnSave.setOnClickListener {
-//            val collectionRef = db.collection("user")
-//            val message = hashMapOf(
-//                "message" to binding.etProduct.text.toString()
-//            )
-//
-//            findNavController().navigateUp()
-//            collectionRef.add(message).addOnSuccessListener {
-//            }
-//        }
