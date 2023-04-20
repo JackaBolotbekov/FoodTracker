@@ -13,8 +13,6 @@ import com.example.presentation.ui.adapter.HomeAdapter
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
-import java.text.SimpleDateFormat
-import java.util.*
 import kotlin.collections.ArrayList
 
 @AndroidEntryPoint
@@ -30,46 +28,53 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
         super.onViewCreated(view, savedInstanceState)
         getMessage()
     }
-    override fun initialize() {
-        val collection = db.collection("Jaka")
-        // Получаем обновления в реальном времени с помощью Cloud Firestore
-        collection.addSnapshotListener { value, _ ->
-            if (value != null) {
-                // Создаем наш лист из String значений
-                val list = ArrayList<String>()
-                for (string in value) {
-                    string.getString("message")?.let {
-                        list.add(it).toString().trim() // trim() чтобы не отправлять пустату
-                    }
-                }
-                binding.recyclerView.adapter = homeAdapter
-//        db.collection("user").addSnapshotListener() { doc, e ->
-//                doc?.documents?.forEach { it ->
-//                    it.toObject(NoteDto::class.java).let {
-//                        viewModel.setModels(it?.message.toString(), it?.time.toString())
 
-//        db.collection("user").addSnapshotListener { value, _ ->
-//            value?.forEach { data ->
-//                listAll.add(data.toObject(NoteDto::class.java))
-//                val message = data.toObject(NoteDto::class.java)
-//                message.message
-//                data.toObject(NoteDto::class.java).let {
-//                    viewModel.setModels(it.message.toString(), it.time.toString())
+    override fun initialize() {
+        binding.recyclerView.adapter = homeAdapter
+//        val collection = db.collection("Jaka")
+//        collection.addSnapshotListener { value, _ ->
+//            if (value != null) {
+//                val list = ArrayList<String>()
+//                for (string in value) {
+//                    string.getString("message")?.let {
+//                        list.add(it).toString().trim() // trim() чтобы не отправлять пустату
+//                    }
 //                }
-                homeAdapter.submitList(listAll)
+//        db.collection("user").addSnapshotListener() { doc, e ->
+//            doc?.documents?.forEach { it ->
+//                it.toObject(NoteDto::class.java).let {
+//                    viewModel.setModels(it?.message.toString(), it?.time.toString())
+//
+//                    db.collection("user").addSnapshotListener { value, _ ->
+//                        value?.forEach { data ->
+//                            listAll.add(data.toObject(NoteDto::class.java))
+//                            data.toObject(NoteDto::class.java).let {
+//                                viewModel.setModels(it.message.toString(), it.time.toString())
+//                            }
+//                            homeAdapter.submitList(listAll)
+//                        }
+//                    }
+//                }
+//            }
+//        }
+    }
+
+    private fun getMessage() {
+        db.collection("user").document().addSnapshotListener { doc, e ->
+
+            val f = db.collection("user").get()
+            f.addOnSuccessListener { data ->
+                val message = data.toObjects(NoteDto::class.java)
+                viewModel.setModels2(message)
+            }
+//            doc?.toObject(NoteDto::class.java).let {
+//                viewModel.setModels(it?.message.toString(), it?.time.toString())
+//            }
+            viewModel.noteLiveData2.observe(viewLifecycleOwner) {
+                homeAdapter.submitList(it)
             }
         }
     }
-        private fun getMessage() {
-            db.collection("user").document("new").addSnapshotListener { doc, e ->
-                doc?.toObject(NoteDto::class.java).let {
-                    viewModel.setModels(it?.message.toString(), it?.time.toString())
-                }
-                viewModel.noteLiveData.observe(viewLifecycleOwner) {
-                    homeAdapter.submitList(it)
-                }
-            }
-        }
 //        firebase.collection("user").addSnapshotListener { value, _ ->
 //            value?.forEach { data ->
 //                listAll.add(data.toObject(NoteDto::class.java))
@@ -84,4 +89,5 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
         binding.btnAdd.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_addProductFragment)
         }
-    } }
+    }
+}

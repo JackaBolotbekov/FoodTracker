@@ -22,7 +22,7 @@ class AddProductFragment :
     private val db = Firebase.firestore
 
     override fun setupListeners() {
-        binding.btnSave.setOnClickListener {
+        binding.swoosh.setOnClickListener {
             val message = binding.etProduct.text.toString()
             if (message.isEmpty()) {
                 Toast.makeText(requireContext(), "Введите текст...", Toast.LENGTH_SHORT).show()
@@ -41,7 +41,7 @@ class AddProductFragment :
         val user = hashMapOf(
             "message" to messageText, "time" to timeText
         )
-        db.collection("user").document("new").set(user).addOnSuccessListener {}
+        db.collection("user").document().set(user).addOnSuccessListener {}
         findNavController().navigateUp()
     }
 }
