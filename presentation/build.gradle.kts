@@ -5,6 +5,8 @@ plugins {
         kotlin(kapt)
         id(hilt)
     }
+    id("com.google.gms.google-services")
+
 }
 
 android {
@@ -38,6 +40,18 @@ android {
 }
 
 dependencies {
+    implementation("com.google.firebase:firebase-firestore-ktx:24.5.0")
+
+    // Import the BoM for the Firebase platform
+    implementation(platform("com.google.firebase:firebase-bom:31.5.0"))
+
+    // Add the dependency for the Firebase Authentication library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation("com.google.firebase:firebase-auth-ktx")
+
+    implementation ("com.google.firebase:firebase-analytics-ktx")
+
+
     Dependencies.UIComponents.apply {
         implementation(core)
         implementation(appCompat)
@@ -89,5 +103,8 @@ dependencies {
 
     Dependencies.Domain.apply {
         implementation(project(domain))
+    }
+    Dependencies.Data.apply {
+        implementation(project(data))
     }
 }
