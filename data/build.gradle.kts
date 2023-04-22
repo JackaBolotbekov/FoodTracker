@@ -51,7 +51,6 @@ dependencies {
         implementation(legacy)
         implementation(lifecycle)
     }
-
     Dependencies.Hilt.apply {
         // Hilt
         implementation(hilt)
