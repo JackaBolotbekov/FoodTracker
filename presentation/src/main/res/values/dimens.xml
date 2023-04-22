@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- My custom dimen -->
+
     <dimen name="fragment_container">0dp</dimen>
     <dimen name="padding_main_container">20dp</dimen>
     <dimen name="size_text_title">24sp</dimen>
