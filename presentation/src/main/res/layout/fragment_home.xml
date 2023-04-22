@@ -100,15 +100,15 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_home"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
         android:paddingVertical="@dimen/padding_vertical"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_grid"
-        app:spanCount="2"
-        tools:listitem="@layout/item_home_grid" />
+        tools:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+        tools:listitem="@layout/item_home_grid"
+        tools:spanCount="2" />
 
     <ImageView
         android:id="@+id/btn_add"

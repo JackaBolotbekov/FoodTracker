@@ -1,5 +1,6 @@
 package com.example.presentation.ui.fragments.login
 
+import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -28,6 +29,7 @@ class LogInFragment : BaseFragment<FragmentLogInBinding, LogInViewModel>(R.layou
                 findNavController().navigate(R.id.action_logInFragment_to_homeFragment)
             } else if (editText.isEmpty()) {
                 etLogin.error = getString(R.string.add_field)
+                Log.e("tag", editText.toString())
             } else {
                 etLogin.error = getString(R.string.small_name)
             }

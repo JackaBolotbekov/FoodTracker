@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/back_item_grid"
+        android:background="@drawable/back_item_linear"
         android:orientation="vertical"
         android:padding="10dp">
 
@@ -18,9 +18,10 @@
             android:id="@+id/tv_title_item_home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_6dp"
             android:fontFamily="@font/dela_gothic_one"
             android:gravity="start"
-            android:padding="@dimen/padding_6dp"
+            android:paddingStart="@dimen/padding_6dp"
             android:textColor="@color/ui_black"
             android:textSize="@dimen/size_text_title"
             app:layout_constraintStart_toStartOf="parent"
@@ -31,6 +32,7 @@
             android:id="@+id/tv_calories_item_home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_6dp"
             android:fontFamily="@font/comfortaa"
             android:gravity="start"
             android:paddingStart="@dimen/padding_6dp"
@@ -52,7 +54,7 @@
             android:textSize="@dimen/et_text_size"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_calories_item_home"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_item_home"
             tools:text="@string/date" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

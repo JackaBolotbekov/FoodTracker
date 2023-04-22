@@ -95,4 +95,7 @@ dependencies {
     Dependencies.Domain.apply {
         implementation(project(domain))
     }
+    Dependencies.Data.apply {
+        implementation(project(data))
+    }
 }
