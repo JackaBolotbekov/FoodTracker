@@ -1,6 +1,7 @@
 package com.example.presentation.ui.fragments.home
 
 import android.os.Bundle
+import android.provider.CalendarContract.Attendees.query
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -32,7 +33,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
     }
 
     private fun getMessage() {
-        db.collection("user").document("new").addSnapshotListener { doc, e ->
+        db.collection("user").document().addSnapshotListener { doc, e ->
             val f = db.collection("user").get()
             f.addOnSuccessListener { data ->
                 val message = data.toObjects(NoteDto::class.java)

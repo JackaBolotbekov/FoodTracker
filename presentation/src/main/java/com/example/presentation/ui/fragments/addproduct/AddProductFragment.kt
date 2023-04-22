@@ -27,6 +27,7 @@ class AddProductFragment :
             if (message.isEmpty()) {
                 Toast.makeText(requireContext(), "Введите текст...", Toast.LENGTH_SHORT).show()
             } else if (message == "/report") {
+                Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
             } else {
                 sendMessage()
             }
@@ -42,7 +43,7 @@ class AddProductFragment :
             "message" to messageText, "time" to timeText
         )
 
-        db.collection("user").document("new").set(user).addOnSuccessListener {}
+        db.collection("user").document().set(user).addOnSuccessListener {}
         findNavController().navigateUp()
     }
 }

@@ -38,6 +38,14 @@
                 android:padding="10dp"
                 tools:text="1006 ккалорий" />
 
+            <TextView
+                android:id="@+id/massage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="10dp"
+                tools:text="1006 ккалорий" />
+
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
