@@ -5,5 +5,4 @@ interface UserInfoRepository {
     fun saveData(key: String, value: Boolean)
 
     fun getData(key: String): Boolean
-
 }

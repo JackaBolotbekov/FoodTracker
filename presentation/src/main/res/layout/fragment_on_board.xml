@@ -30,7 +30,7 @@
         android:id="@+id/btn_skip"
         android:layout_width="@dimen/fragment_container"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/margin_horizontal"
+        android:layout_marginHorizontal="@dimen/padding_horizontal"
         android:background="@drawable/et_oval"
         android:backgroundTint="@color/green"
         android:fontFamily="@font/comfortaa"

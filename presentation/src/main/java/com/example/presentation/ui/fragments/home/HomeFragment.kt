@@ -2,10 +2,16 @@ package com.example.presentation.ui.fragments.home
 
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.presentation.R
 import com.example.presentation.base.BaseFragment
 import com.example.presentation.databinding.FragmentHomeBinding
+import com.example.presentation.model.FirebaseModel
+import com.example.presentation.ui.adapter.HomeAdapter
+import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -13,18 +19,38 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
 
     override val binding by viewBinding(FragmentHomeBinding::bind)
     override val viewModel: HomeViewModel by viewModels()
+    private val homeAdapter = HomeAdapter()
+    private val db = Firebase.firestore
     var progress = 0
 
     override fun initialize() {
         initial()
-    }
-
-    override fun setupListeners() {
+        regularAdapter()
+        getMessage()
         click()
     }
 
     private fun initial() = with(binding) {
         tvNumberCalories.setText(R.string.number_0)
+    }
+
+    private fun regularAdapter(rv: Boolean = homeAdapter.boolean) = with(binding) {
+        rvHome.adapter = homeAdapter
+        rvHome.layoutManager = StaggeredGridLayoutManager(2, 1)
+    }
+
+    private fun getMessage() {
+        db.collection("home").document().addSnapshotListener { doc, e ->
+            val f = db.collection("home").orderBy("time", Query.Direction.ASCENDING).get()
+            f.addOnSuccessListener { data ->
+                val message = data.toObjects(FirebaseModel::class.java)
+                viewModel.setModels2(message)
+            }
+
+            viewModel.noteLiveData2.observe(viewLifecycleOwner) {
+                homeAdapter.submitList(it)
+            }
+        }
     }
 
     private fun click() = with(binding) {
