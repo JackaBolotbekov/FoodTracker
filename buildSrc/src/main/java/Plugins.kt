@@ -7,4 +7,5 @@ object Plugins {
     const val kotlinJvm = "org.jetbrains.kotlin.jvm"
     const val kapt = "kapt"
     const val javaLibrary = "java-library"
+    const val googleServices = "com.google.gms.google-services"
 }

@@ -1,19 +1,17 @@
 package com.example.presentation.ui.fragments.editdefault
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.presentation.R
+import com.example.presentation.base.BaseFragment
+import com.example.presentation.databinding.FragmentHistoryBinding
+import com.example.presentation.ui.fragments.history.HistoryViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-class EditDefaultFragment : Fragment() {
+@AndroidEntryPoint
+class EditDefaultFragment :
+    BaseFragment<FragmentHistoryBinding, HistoryViewModel>(R.layout.fragment_edit_default) {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_edit_default, container, false)
-    }
+    override val binding by viewBinding(FragmentHistoryBinding::bind)
+    override val viewModel: HistoryViewModel by viewModels()
 }

@@ -4,6 +4,7 @@ plugins {
         kotlin(android)
         kotlin(kapt)
         id(hilt)
+        id(googleServices)
     }
 }
 
@@ -13,7 +14,6 @@ android {
 
     defaultConfig {
         minSdk = Config.minSdk
-        targetSdk = Config.compileAndTargetSdk
 
         testInstrumentationRunner = Config.testInstrumentationRunner
         consumerProguardFiles(Config.consumer)
@@ -82,7 +82,20 @@ dependencies {
         implementation(retrofitConverter)
     }
 
+    Dependencies.DotsIndicator.apply {
+        implementation(dotsIndicator)
+    }
+
+    Dependencies.Firebase.apply {
+        implementation(firestore)
+    }
+
+//    implementation ("androidx.core:core-splashscreen:1.1.0-alpha01")
+
     Dependencies.Domain.apply {
         implementation(project(domain))
+    }
+    Dependencies.Data.apply {
+        implementation(project(data))
     }
 }

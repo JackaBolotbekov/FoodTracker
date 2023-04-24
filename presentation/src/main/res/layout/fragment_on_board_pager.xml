@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="@dimen/padding_horizontal"
+    android:paddingBottom="@dimen/padding_bottom"
+    tools:context=".ui.fragments.onboard.OnBoardPagerFragment">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/materialCardView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_top"
+            app:cardCornerRadius="@dimen/tab_radius"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/stroke_with">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_iv_on_board"
+                android:layout_gravity="center"
+                android:contentDescription="@string/todo"
+                android:paddingHorizontal="@dimen/padding_horizontal"
+                android:scaleType="centerInside"
+                tools:src="@drawable/ob3" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="@dimen/margin_horizontal"
+            android:layout_marginTop="@dimen/margin_top"
+            android:fontFamily="@font/dela_gothic_one"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/size_text_title"
+            tools:text="@string/second_title_on_board" />
+
+        <TextView
+            android:id="@+id/tv_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/comfortaa"
+            android:gravity="center"
+            android:padding="@dimen/padding_6dp"
+            android:textColor="@color/dark_gray"
+            android:textSize="@dimen/btn_text_size"
+            tools:text="@string/first_description_on_board" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

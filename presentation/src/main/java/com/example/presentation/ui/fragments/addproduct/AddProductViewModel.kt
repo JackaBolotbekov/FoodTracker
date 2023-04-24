@@ -1,7 +1,8 @@
 package com.example.presentation.ui.fragments.addproduct
 
-import androidx.lifecycle.ViewModel
+import javax.inject.Inject
+import com.example.presentation.base.BaseViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 
-class AddProductViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
-}
+@HiltViewModel
+class AddProductViewModel @Inject constructor() : BaseViewModel()

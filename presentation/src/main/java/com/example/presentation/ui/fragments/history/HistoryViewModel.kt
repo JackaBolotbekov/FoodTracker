@@ -1,6 +1,9 @@
 package com.example.presentation.ui.fragments.history
 
-import androidx.lifecycle.ViewModel
+import com.example.presentation.base.BaseViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class HistoryViewModel : ViewModel() {
+@HiltViewModel
+class HistoryViewModel @Inject constructor(): BaseViewModel() {
 }
