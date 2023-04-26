@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,118 +8,124 @@
     android:padding="@dimen/padding_horizontal"
     tools:context=".ui.fragments.home.HomeFragment">
 
-    <TextView
-        android:id="@+id/tv_main"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/dela_gothic_one"
-        android:text="@string/main"
-        android:textColor="@color/black"
-        android:textSize="@dimen/size_text_title"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <View
-        android:id="@+id/btn_history"
-        android:layout_width="@dimen/view_home"
-        android:layout_height="@dimen/view_home"
-        android:layout_gravity="end|center_vertical"
-        android:layout_marginHorizontal="@dimen/margin_vertical"
-        android:background="@drawable/icon_history"
-        app:layout_constraintEnd_toStartOf="@+id/btn_edit"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <View
-        android:id="@+id/btn_edit"
-        android:layout_width="@dimen/view_add_product"
-        android:layout_height="@dimen/view_add_product"
-        android:layout_gravity="end|center_vertical"
-        android:background="@drawable/icon_edit"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_history"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btn_history" />
-
-    <ProgressBar
-        android:id="@+id/progress_bar"
-        style="@style/CircularDeterminateProgressBar"
-        android:layout_width="@dimen/dp_330"
-        android:layout_height="@dimen/dp_330"
-        android:padding="@dimen/padding_6dp"
-        android:rotation="140"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_main"
-        tools:progress="48" />
-
-    <TextView
-        android:id="@+id/tv_number_calories"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/margin_bottom"
-        android:fontFamily="@font/dela_gothic_one"
-        android:gravity="center"
-        android:textColor="@color/ui_black"
-        android:textSize="@dimen/dp_44"
-        app:layout_constraintBottom_toBottomOf="@+id/progress_bar"
-        app:layout_constraintEnd_toEndOf="@+id/progress_bar"
-        app:layout_constraintStart_toStartOf="@+id/progress_bar"
-        app:layout_constraintTop_toTopOf="@+id/progress_bar"
-        tools:text="@string/number_1800" />
-
-    <TextView
-        android:id="@+id/tv_text_calories"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/dela_gothic_one"
-        android:text="@string/text_calories"
-        android:textColor="@color/ui_black"
-        android:textSize="@dimen/size_text_title"
-        app:layout_constraintEnd_toEndOf="@+id/progress_bar"
-        app:layout_constraintStart_toStartOf="@+id/progress_bar"
-        app:layout_constraintTop_toBottomOf="@+id/tv_number_calories" />
-
-    <View
-        android:id="@+id/btn_grid"
-        android:layout_width="@dimen/view_add_product"
-        android:layout_height="@dimen/view_add_product"
-        android:layout_marginHorizontal="@dimen/padding_6dp"
-        android:background="@drawable/rv_grid"
-        app:layout_constraintStart_toStartOf="@id/rv_home"
-        app:layout_constraintTop_toBottomOf="@+id/progress_bar" />
-
-    <View
-        android:id="@+id/btn_linear"
-        android:layout_width="@dimen/view_add_product"
-        android:layout_height="@dimen/view_add_product"
-        android:layout_marginHorizontal="@dimen/padding_6dp"
-        android:background="@drawable/rv_linear"
-        android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="@+id/rv_home"
-        app:layout_constraintTop_toBottomOf="@+id/progress_bar" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_home"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:paddingVertical="@dimen/padding_vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_grid"
-        tools:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
-        tools:listitem="@layout/item_home_grid"
-        tools:spanCount="2" />
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/btn_add"
-        android:layout_width="@dimen/size_btn_add"
-        android:layout_height="@dimen/size_btn_add"
-        android:layout_gravity="end|bottom"
-        android:background="@drawable/icon_add"
-        android:contentDescription="@string/todo"
-        android:padding="@dimen/et_padding"
-        android:src="@drawable/icon_plus"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <TextView
+            android:id="@+id/tv_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/dela_gothic_one"
+            android:text="@string/main"
+            android:textColor="@color/black"
+            android:textSize="@dimen/size_text_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <View
+            android:id="@+id/btn_history"
+            android:layout_width="@dimen/view_home"
+            android:layout_height="@dimen/view_home"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginHorizontal="@dimen/margin_vertical"
+            android:background="@drawable/icon_history"
+            app:layout_constraintEnd_toStartOf="@+id/btn_edit"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/btn_edit"
+            android:layout_width="@dimen/view_add_product"
+            android:layout_height="@dimen/view_add_product"
+            android:layout_gravity="end|center_vertical"
+            android:background="@drawable/icon_edit"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_history"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btn_history" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="@style/CircularDeterminateProgressBar"
+            android:layout_width="@dimen/dp_330"
+            android:layout_height="@dimen/dp_330"
+            android:padding="@dimen/padding_6dp"
+            android:rotation="140"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_main"
+            tools:progress="48" />
+
+        <TextView
+            android:id="@+id/tv_number_calories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_bottom"
+            android:fontFamily="@font/dela_gothic_one"
+            android:gravity="center"
+            android:text="@string/number_1800"
+            android:textColor="@color/ui_black"
+            android:textSize="@dimen/dp_44"
+            app:layout_constraintBottom_toBottomOf="@+id/progress_bar"
+            app:layout_constraintEnd_toEndOf="@+id/progress_bar"
+            app:layout_constraintStart_toStartOf="@+id/progress_bar"
+            app:layout_constraintTop_toTopOf="@+id/progress_bar" />
+
+        <TextView
+            android:id="@+id/tv_text_calories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/dela_gothic_one"
+            android:text="@string/text_calories"
+            android:textColor="@color/ui_black"
+            android:textSize="@dimen/size_text_title"
+            app:layout_constraintEnd_toEndOf="@+id/progress_bar"
+            app:layout_constraintStart_toStartOf="@+id/progress_bar"
+            app:layout_constraintTop_toBottomOf="@+id/tv_number_calories" />
+
+        <View
+            android:id="@+id/btn_grid"
+            android:layout_width="@dimen/view_add_product"
+            android:layout_height="@dimen/view_add_product"
+            android:layout_marginHorizontal="@dimen/padding_6dp"
+            app:layout_constraintStart_toStartOf="@id/rv_home"
+            app:layout_constraintTop_toBottomOf="@+id/progress_bar"
+            tools:background="@drawable/rv_grid" />
+
+        <View
+            android:id="@+id/btn_linear"
+            android:layout_width="@dimen/view_add_product"
+            android:layout_height="@dimen/view_add_product"
+            android:layout_marginHorizontal="@dimen/padding_6dp"
+            android:background="@drawable/rv_linear"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="@+id/rv_home"
+            app:layout_constraintTop_toBottomOf="@+id/progress_bar" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingVertical="@dimen/padding_vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_grid"
+            tools:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+            tools:listitem="@layout/item_home_grid"
+            tools:spanCount="2" />
+
+        <ImageView
+            android:id="@+id/btn_add"
+            android:layout_width="@dimen/size_btn_add"
+            android:layout_height="@dimen/size_btn_add"
+            android:layout_gravity="end|bottom"
+            android:background="@drawable/icon_add"
+            android:contentDescription="@string/todo"
+            android:padding="@dimen/et_padding"
+            android:src="@drawable/icon_plus"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
