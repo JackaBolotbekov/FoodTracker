@@ -46,7 +46,7 @@
         android:background="@drawable/et_oval"
         android:fontFamily="@font/comfortaa"
         android:hint="@string/edit_norms_ccal"
-        android:inputType="text"
+        android:inputType="numberSigned"
         android:minWidth="@dimen/et_min_with"
         android:minHeight="@dimen/et_min_height"
         android:padding="@dimen/et_padding"

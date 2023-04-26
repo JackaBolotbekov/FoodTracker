@@ -7,7 +7,9 @@ class SaveUserParamsUseCase @Inject constructor(
     private val userInfoRepository: UserInfoRepository
 ) {
 
-    fun saveData(key: String, value: Boolean) = userInfoRepository.saveData(key, value)
-
-    fun getData(key: String) = userInfoRepository.getData(key)
+    var showLogIn: Boolean
+        get() = userInfoRepository.showLogIn
+        set(value) {
+            userInfoRepository.showLogIn = value
+        }
 }

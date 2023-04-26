@@ -1,7 +1,9 @@
 package com.example.presentation.ui.fragments.home
 
+import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.presentation.R
@@ -21,20 +23,28 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
     override val viewModel: HomeViewModel by viewModels()
     private val homeAdapter = HomeAdapter()
     private val db = Firebase.firestore
-    var progress = 0
+//    var progress = 0
 
     override fun initialize() {
         initial()
-        regularAdapter()
         getMessage()
+    }
+
+    override fun setupListeners() {
         click()
     }
 
-    private fun initial() = with(binding) {
-        tvNumberCalories.setText(R.string.number_0)
+    override fun setupObserves() {
+        addText()
     }
 
-    private fun regularAdapter(rv: Boolean = homeAdapter.boolean) = with(binding) {
+    private fun addText() {
+        val args : HomeFragmentArgs by navArgs()
+        binding.tvNumberCalories.text = args.number.toString()
+        Log.d("MyFragment", "Text argument value: ${args.number}")
+    }
+
+    private fun initial() = with(binding) {
         rvHome.adapter = homeAdapter
         rvHome.layoutManager = StaggeredGridLayoutManager(2, 1)
     }
@@ -58,21 +68,23 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
             findNavController().navigate(R.id.action_homeFragment_to_addProductFragment)
         }
         btnEdit.setOnClickListener {
-            if (progress >= 10) {
-                progress -= 10
-                updateProgressBar()
-            }
+            findNavController().navigate(R.id.action_homeFragment_to_editDefaultFragment)
+//            if (progress >= 10) {
+//                progress -= 10
+//                updateProgressBar()
+//            }
         }
         btnHistory.setOnClickListener {
-            if (progress <= 90) {
-                progress += 10
-                updateProgressBar()
-            }
+            findNavController().navigate(R.id.action_homeFragment_to_historyFragment)
+//            if (progress <= 90) {
+//                progress += 10
+//                updateProgressBar()
+//            }
         }
     }
 
-    fun updateProgressBar() = with(binding) {
-        progressBar.progress = progress
-        tvNumberCalories.text = progress.toString()
-    }
+//    fun updateProgressBar() = with(binding) {
+//        progressBar.progress = progress
+//        tvNumberCalories.text = progress.toString()
+//    }
 }

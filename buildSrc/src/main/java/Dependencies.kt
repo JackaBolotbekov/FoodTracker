@@ -4,6 +4,7 @@ object Dependencies {
         const val core = "androidx.core:core-ktx:1.9.0"
         const val appCompat = "androidx.appcompat:appcompat:1.6.1"
         const val material = "com.google.android.material:material:1.8.0"
+//        const val design = "com.android.support:design:28.0.0"
         const val constraint = "androidx.constraintlayout:constraintlayout:2.1.4"
         const val legacy = "androidx.legacy:legacy-support-v4:1.0.0"
         const val lifecycle = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"

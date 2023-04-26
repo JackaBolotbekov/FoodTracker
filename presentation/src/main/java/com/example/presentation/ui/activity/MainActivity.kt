@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         navController = navHostFragment.navController
         navController.navInflater.inflate(R.navigation.nav_graph)
 
-        when (viewModel.getData(getString(R.string.key_log_in))){
+        when (viewModel.showLogIn){
             true -> {
                 navController.navigate(R.id.action_logInFragment_to_homeFragment)
             }

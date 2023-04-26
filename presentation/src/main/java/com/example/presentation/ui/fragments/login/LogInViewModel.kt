@@ -9,9 +9,11 @@ import javax.inject.Inject
 @HiltViewModel
 class LogInViewModel @Inject constructor(
     private val saveUserParamsUseCase: SaveUserParamsUseCase
-): BaseViewModel() {
+) : BaseViewModel() {
 
-    fun saveData(key: String, value: Boolean) = saveUserParamsUseCase.saveData(key, value)
-
-    fun getData(key: String) = saveUserParamsUseCase.getData(key)
+    var showLogIn: Boolean
+        get() = saveUserParamsUseCase.showLogIn
+        set(value) {
+            saveUserParamsUseCase.showLogIn = value
+        }
 }

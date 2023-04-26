@@ -2,7 +2,7 @@ package com.example.domain.repositories
 
 interface UserInfoRepository {
 
-    fun saveData(key: String, value: Boolean)
+    var showLogIn: Boolean
 
-    fun getData(key: String): Boolean
+    var logInText: String?
 }

@@ -5,6 +5,7 @@ plugins {
         kotlin(kapt)
         id(hilt)
         id(googleServices)
+        id(safeArgs)
     }
 }
 

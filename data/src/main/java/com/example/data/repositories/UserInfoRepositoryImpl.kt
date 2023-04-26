@@ -1,20 +1,22 @@
 package com.example.data.repositories
 
-import android.content.SharedPreferences
+import com.example.data.local.helper.LogInPreferencesHelper
 import com.example.domain.repositories.UserInfoRepository
 import javax.inject.Inject
 
 class UserInfoRepositoryImpl @Inject constructor(
-    private val sharedPreferences: SharedPreferences
+    private val preferencesHelper: LogInPreferencesHelper
 ) : UserInfoRepository {
 
-    override fun saveData(key: String, value: Boolean) {
-        val editor: SharedPreferences.Editor = sharedPreferences.edit()
-        editor.putBoolean(key, value)
-        editor.apply()
-    }
+    override var showLogIn: Boolean
+        get() = preferencesHelper.showLogIn
+        set(value) {
+            preferencesHelper.showLogIn = value
+        }
 
-    override fun getData(key: String): Boolean {
-        return sharedPreferences.getBoolean(key, false)
-    }
+    override var logInText: String?
+        get() = preferencesHelper.logInText
+        set(value) {
+            preferencesHelper.logInText = value
+        }
 }
