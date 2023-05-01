@@ -62,7 +62,7 @@
             android:layout_marginBottom="@dimen/margin_bottom"
             android:fontFamily="@font/dela_gothic_one"
             android:gravity="center"
-            android:text="@string/number_1800"
+            tools:text="@string/number_1800"
             android:textColor="@color/ui_black"
             android:textSize="@dimen/dp_44"
             app:layout_constraintBottom_toBottomOf="@+id/progress_bar"

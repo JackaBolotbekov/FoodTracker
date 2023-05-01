@@ -1,4 +1,4 @@
-package com.example.presentation.ui.fragments.onboard
+package com.example.presentation.ui.fragments.onboard.pager
 
 import androidx.fragment.app.viewModels
 import by.kirich1409.viewbindingdelegate.viewBinding

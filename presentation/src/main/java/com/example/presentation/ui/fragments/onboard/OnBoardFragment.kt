@@ -7,15 +7,14 @@ import com.example.presentation.R
 import com.example.presentation.base.BaseFragment
 import com.example.presentation.databinding.FragmentOnBoardBinding
 import com.example.presentation.ui.adapter.OnBoardPagerAdapter
-import com.example.presentation.ui.fragments.login.LogInViewModel
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class OnBoardFragment : BaseFragment<FragmentOnBoardBinding, LogInViewModel>(R.layout.fragment_on_board) {
+class OnBoardFragment : BaseFragment<FragmentOnBoardBinding, OnBoardViewModel>(R.layout.fragment_on_board) {
 
     override val binding by viewBinding(FragmentOnBoardBinding::bind)
-    override val viewModel: LogInViewModel by viewModels()
+    override val viewModel: OnBoardViewModel by viewModels()
 
     override fun initialize() {
         initial()
@@ -33,6 +32,7 @@ class OnBoardFragment : BaseFragment<FragmentOnBoardBinding, LogInViewModel>(R.l
     private fun setupListener() = with(binding) {
         btnSkip.setOnClickListener {
             findNavController().navigate(R.id.action_pagerFragment_to_logInFragment)
+            viewModel.showOnBoard = true
         }
     }
 }

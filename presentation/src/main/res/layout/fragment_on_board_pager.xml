@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:paddingHorizontal="@dimen/padding_horizontal"
     android:paddingBottom="@dimen/padding_bottom"
-    tools:context=".ui.fragments.onboard.OnBoardPagerFragment">
+    tools:context=".ui.fragments.onboard.pager.OnBoardPagerFragment">
 
     <LinearLayout
         android:layout_width="wrap_content"

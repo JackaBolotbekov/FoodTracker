@@ -1,19 +1,25 @@
 package com.example.presentation.ui.fragments.login
 
 
-import com.example.domain.usecases.SaveUserParamsUseCase
+import com.example.domain.usecases.SingleShowLogInUseCase
 import com.example.presentation.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class LogInViewModel @Inject constructor(
-    private val saveUserParamsUseCase: SaveUserParamsUseCase
+    private val singleShowLogInUseCase: SingleShowLogInUseCase
 ) : BaseViewModel() {
 
     var showLogIn: Boolean
-        get() = saveUserParamsUseCase.showLogIn
+        get() = singleShowLogInUseCase.showLogIn
         set(value) {
-            saveUserParamsUseCase.showLogIn = value
+            singleShowLogInUseCase.showLogIn = value
+        }
+
+    var userName: String?
+        get() = singleShowLogInUseCase.userName
+        set(value) {
+            singleShowLogInUseCase.userName = value
         }
 }

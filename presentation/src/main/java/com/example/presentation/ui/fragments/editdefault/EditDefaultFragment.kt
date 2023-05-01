@@ -1,5 +1,6 @@
 package com.example.presentation.ui.fragments.editdefault
 
+import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -23,8 +24,9 @@ class EditDefaultFragment :
         swoosh.setOnClickListener {
             val text = etEditNormsDay.text.toString().trim()
             if (text.length < 5) {
-                val action = EditDefaultFragmentDirections.actionEditDefaultFragmentToHomeFragment(text.toInt())
-                findNavController().navigate(action)
+                viewModel.defaultKcalText = text
+                Log.d("setDefaultKcal", text)
+                findNavController().navigateUp()
             } else {etEditNormsDay.error = "Вы явно переоцениваете свои возможности!"}
         }
     }

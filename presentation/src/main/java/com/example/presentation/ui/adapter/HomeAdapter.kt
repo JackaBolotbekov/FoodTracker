@@ -11,18 +11,12 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class HomeAdapter : ListAdapter<FirebaseModel, HomeAdapter.ViewHolder>(diffUtil) {
-
-    var boolean = true
-
     inner class ViewHolder(private val binding: ItemHomeGridBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(model: FirebaseModel) {
-            val formatter = SimpleDateFormat("dd.MM.yyyy'г'", Locale.CHINA)
-            val time = formatter.format(Date())
-            val timeText = time.toString()
             binding.tvTitleItemHome.text = model.text
             binding.tvCaloriesItemHome.text = model.message
-            binding.tvDateItemHome.text = timeText
+            binding.tvDateItemHome.text = model.time
         }
     }
 

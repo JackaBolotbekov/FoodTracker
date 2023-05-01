@@ -39,10 +39,6 @@
         android:name="com.example.presentation.ui.fragments.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home">
-        <argument
-            android:name="number"
-            app:argType="integer"
-            android:defaultValue="0" />
         <action
             android:id="@+id/action_homeFragment_to_addProductFragment"
             app:destination="@id/addProductFragment" />
@@ -65,9 +61,6 @@
         android:name="com.example.presentation.ui.fragments.editdefault.EditDefaultFragment"
         android:label="fragment_edit_default"
         tools:layout="@layout/fragment_edit_default" >
-        <action
-            android:id="@+id/action_editDefaultFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
     </fragment>
 
     <fragment

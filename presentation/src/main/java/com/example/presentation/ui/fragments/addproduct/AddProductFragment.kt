@@ -24,8 +24,11 @@ class AddProductFragment :
     override fun setupListeners() {
         binding.swoosh.setOnClickListener {
             val message = binding.etProduct.text.toString()
+            val kcalNumber = binding.etCcal.text.toString()
             if (message.isEmpty()) {
-                Toast.makeText(requireContext(), "Введите текст...", Toast.LENGTH_SHORT).show()
+                binding.etProduct.error = "Введите название продукта"
+            } else if (kcalNumber.isEmpty()) {
+                binding.etCcal.error = "Введите норму ккалорий"
             } else if (message == "/report") {
                 Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
             } else {
@@ -35,7 +38,7 @@ class AddProductFragment :
     }
 
     private fun sendMessage() {
-        val formatterUse = SimpleDateFormat("HH:mm:ss", Locale.CHINA)
+        val formatterUse = SimpleDateFormat("dd.MM.yyyy'г'", Locale.CHINA)
         val time = formatterUse.format(Date())
         val timeText = time.toString()
         val numberKcal = binding.etCcal.text.toString()
@@ -44,7 +47,7 @@ class AddProductFragment :
             "text" to textTitle, "message" to numberKcal, "time" to timeText
         )
 
-        db.collection("home").document().set(user).addOnSuccessListener {}
+        viewModel.userName?.let { db.collection(it).document().set(user).addOnSuccessListener {} }
         findNavController().navigateUp()
     }
 }

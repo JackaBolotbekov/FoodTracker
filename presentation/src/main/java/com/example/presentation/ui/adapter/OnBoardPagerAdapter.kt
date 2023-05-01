@@ -3,8 +3,8 @@ package com.example.presentation.ui.adapter
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.presentation.ui.fragments.onboard.OnBoardPagerFragment
-import com.example.presentation.ui.fragments.onboard.OnBoardPagerFragment.Companion.KEY
+import com.example.presentation.ui.fragments.onboard.pager.OnBoardPagerFragment
+import com.example.presentation.ui.fragments.onboard.pager.OnBoardPagerFragment.Companion.KEY
 
 class OnBoardPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
 
