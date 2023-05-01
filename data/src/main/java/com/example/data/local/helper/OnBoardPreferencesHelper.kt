@@ -18,8 +18,4 @@ class OnBoardPreferencesHelper @Inject constructor(@ApplicationContext context: 
     var showOnBoard: Boolean
         get() = preferences.getBoolean(KEY_LOG_IN, false)
         set(value) = preferences.edit().putBoolean(KEY_LOG_IN, value).apply()
-
-    var onBoardText: String?
-        get() = preferences.getString(KEY_NAME, "")
-        set(value) = preferences.edit().putString(KEY_NAME, value).apply()
 }

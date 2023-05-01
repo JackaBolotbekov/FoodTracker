@@ -19,17 +19,17 @@ class LogInFragment : BaseFragment<FragmentLogInBinding, LogInViewModel>(R.layou
         setOnClickListeners()
     }
 
-    private fun setOnClickListeners(    ) = with(binding) {
-        val editText =
-            etLogin.text // если здесь написать toString.trim, то код неккоректно работает
-        val text = etLogin.text.toString().trim()
+    private fun setOnClickListeners() = with(binding) {
+        val editText = etLogin.text // если здесь написать toString.trim, то код неккоректно работает
         btnSkip.setOnClickListener {
-            if (editText.length >= 5) {
-                viewModel.showLogIn = true
+            val text = etLogin.text.toString().trim()
+            if (editText.length >= 2) {
+                viewModel.userName = text
+                Log.d("TextView", "text = $text")
                 findNavController().navigate(R.id.action_logInFragment_to_homeFragment)
+                viewModel.showLogIn = true
             } else if (editText.isEmpty()) {
                 etLogin.error = getString(R.string.add_field)
-                Log.e("tag", editText.toString())
             } else {
                 etLogin.error = getString(R.string.small_name)
             }

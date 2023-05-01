@@ -23,6 +23,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
     override val viewModel: HomeViewModel by viewModels()
     private val homeAdapter = HomeAdapter()
     private val db = Firebase.firestore
+    private val args : HomeFragmentArgs by navArgs()
 //    var progress = 0
 
     override fun initialize() {
@@ -39,7 +40,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
     }
 
     private fun addText() {
-        val args : HomeFragmentArgs by navArgs()
         binding.tvNumberCalories.text = args.number.toString()
         Log.d("MyFragment", "Text argument value: ${args.number}")
     }
@@ -50,15 +50,17 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
     }
 
     private fun getMessage() {
-        db.collection("home").document().addSnapshotListener { doc, e ->
-            val f = db.collection("home").orderBy("time", Query.Direction.ASCENDING).get()
-            f.addOnSuccessListener { data ->
-                val message = data.toObjects(FirebaseModel::class.java)
-                viewModel.setModels2(message)
-            }
-
-            viewModel.noteLiveData2.observe(viewLifecycleOwner) {
-                homeAdapter.submitList(it)
+        viewModel.userName?.let { userName ->
+            db.collection(userName).document().addSnapshotListener { _, _ ->
+                val f = db.collection(userName).orderBy("time", Query.Direction.DESCENDING).get()
+                Log.d("Collection", "text = $userName")
+                f.addOnSuccessListener { data ->
+                    val message = data.toObjects(FirebaseModel::class.java)
+                    viewModel.setModels2(message)
+                }
+                viewModel.noteLiveData2.observe(viewLifecycleOwner) {
+                    homeAdapter.submitList(it)
+                }
             }
         }
     }

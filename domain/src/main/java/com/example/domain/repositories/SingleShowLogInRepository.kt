@@ -1,6 +1,6 @@
 package com.example.domain.repositories
 
-interface UserInfoRepository {
+interface SingleShowLogInRepository {
 
     var showLogIn: Boolean
 

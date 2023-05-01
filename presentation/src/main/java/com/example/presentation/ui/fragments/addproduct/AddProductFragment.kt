@@ -35,7 +35,7 @@ class AddProductFragment :
     }
 
     private fun sendMessage() {
-        val formatterUse = SimpleDateFormat("HH:mm:ss", Locale.CHINA)
+        val formatterUse = SimpleDateFormat("dd.MM.yyyy'г'", Locale.CHINA)
         val time = formatterUse.format(Date())
         val timeText = time.toString()
         val numberKcal = binding.etCcal.text.toString()
@@ -44,7 +44,7 @@ class AddProductFragment :
             "text" to textTitle, "message" to numberKcal, "time" to timeText
         )
 
-        db.collection("home").document().set(user).addOnSuccessListener {}
+        viewModel.userName?.let { db.collection(it).document().set(user).addOnSuccessListener {} }
         findNavController().navigateUp()
     }
 }
