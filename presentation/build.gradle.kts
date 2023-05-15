@@ -91,6 +91,7 @@ dependencies {
         implementation(firestore)
     }
 
+    implementation("com.mikhaellopez:circularprogressbar:3.1.0")
 //    implementation ("androidx.core:core-splashscreen:1.1.0-alpha01")
 
     Dependencies.Domain.apply {

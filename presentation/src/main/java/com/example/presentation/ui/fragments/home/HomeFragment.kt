@@ -1,7 +1,13 @@
 package com.example.presentation.ui.fragments.home
 
+import android.util.Log
+import androidx.core.view.isGone
+import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.presentation.R
@@ -34,13 +40,24 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
 
     private fun initial() = with(binding) {
         rvHome.adapter = homeAdapter
-        rvHome.layoutManager = StaggeredGridLayoutManager(2, 1)
+        btnGrid.setOnClickListener {
+            rvHome.layoutManager = LinearLayoutManager(requireContext())
+            rvHome.adapter = homeAdapter
+            btnGrid.isGone = true
+            btnLinear.isGone = false
+        }
+        btnLinear.setOnClickListener {
+            rvHome.layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
+            rvHome.adapter = homeAdapter
+            btnLinear.isGone = true
+            btnGrid.isGone = false
+        }
     }
 
     private fun getMessage() {
         viewModel.userName?.let { userName ->
             db.collection(userName).document().addSnapshotListener { _, _ ->
-                val f = db.collection(userName).orderBy("time", Query.Direction.ASCENDING).get()
+                val f = db.collection(userName).orderBy("time", Query.Direction.DESCENDING).get()
                 f.addOnSuccessListener { data ->
                     val message = data.toObjects(FirebaseModel::class.java)
                     viewModel.setModels2(message)
@@ -49,41 +66,49 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
                     homeAdapter.submitList(it)
                 }
             }
+
+            var sum = 0
+            val docRef = db.collection(userName)
+            docRef.get()
+                .addOnSuccessListener { documents ->
+                    for (document in documents) {
+                        Log.d("resultB", "${document.data.getValue("message")}")
+                        sum += document.data.getValue("message").toString().toInt()
+                    }
+                    Log.d("sum", "$sum")
+                    viewModel.progressKcal = sum
+                    viewModel.progressKcal.let {
+                        Log.d("sumVM", "$it")
+                    }
+                    binding.progressBar.progress = viewModel.progressKcal
+                    Log.d("resultA", "sum = ${binding.progressBar.progress}")
+                }
+                .addOnFailureListener { exception ->
+                    Log.d("resultB", "Error getting documents: ", exception)
+                }
         }
     }
 
     private fun click() = with(binding) {
-        val max = viewModel.defaultKcalText!!.toInt()
         btnAdd.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_addProductFragment)
         }
         btnEdit.setOnClickListener {
-//            findNavController().navigate(R.id.action_homeFragment_to_editDefaultFragment)
-            progress = viewModel.progressKcal
-            if (progress >= 10) {
-                progress -= 10
-                viewModel.progressKcal = progress
-                updateProgressBar()
-            }
+            findNavController().navigate(R.id.action_homeFragment_to_editDefaultFragment)
         }
         btnHistory.setOnClickListener {
-//            findNavController().navigate(R.id.action_homeFragment_to_historyFragment)
-            progress = viewModel.progressKcal
-            if (progress < max) {
-                progress += 10
-                viewModel.progressKcal = progress
-                updateProgressBar()
-            }
+            findNavController().navigate(R.id.action_homeFragment_to_historyFragment)
         }
     }
 
-    fun updateProgressBar() = with(binding) {
-        progressBar.progress = viewModel.progressKcal
+    private fun updateProgressBar() = with(binding) {
+//        viewModel.progressKcal = 0
+        val progress = viewModel.progressKcal
+        Log.d("resultA", "progress view model = ${viewModel.progressKcal}")
+        progressBar.progress = progress
+        Log.d("resultA", "progress bar = ${progressBar.progress}")
         progressBar.max = viewModel.defaultKcalText!!.toInt()
+        Log.d("resultA", "max HomeFragment = ${viewModel.defaultKcalText}")
         tvNumberCalories.text = viewModel.defaultKcalText
-    }
-
-    companion object {
-        var progress = 0
     }
 }
