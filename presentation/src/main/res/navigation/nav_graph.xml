@@ -60,8 +60,7 @@
         android:id="@+id/editDefaultFragment"
         android:name="com.example.presentation.ui.fragments.editdefault.EditDefaultFragment"
         android:label="fragment_edit_default"
-        tools:layout="@layout/fragment_edit_default" >
-    </fragment>
+        tools:layout="@layout/fragment_edit_default" />
 
     <fragment
         android:id="@+id/historyFragment"

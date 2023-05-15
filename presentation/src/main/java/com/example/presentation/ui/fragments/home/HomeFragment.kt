@@ -1,5 +1,8 @@
 package com.example.presentation.ui.fragments.home
 
+import android.util.Log
+import androidx.core.view.updateLayoutParams
+import androidx.core.view.updatePaddingRelative
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -40,7 +43,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
     private fun getMessage() {
         viewModel.userName?.let { userName ->
             db.collection(userName).document().addSnapshotListener { _, _ ->
-                val f = db.collection(userName).orderBy("time", Query.Direction.ASCENDING).get()
+                val f = db.collection(userName).orderBy("time", Query.Direction.DESCENDING).get()
                 f.addOnSuccessListener { data ->
                     val message = data.toObjects(FirebaseModel::class.java)
                     viewModel.setModels2(message)
@@ -53,37 +56,25 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
     }
 
     private fun click() = with(binding) {
-        val max = viewModel.defaultKcalText!!.toInt()
         btnAdd.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_addProductFragment)
         }
         btnEdit.setOnClickListener {
-//            findNavController().navigate(R.id.action_homeFragment_to_editDefaultFragment)
-            progress = viewModel.progressKcal
-            if (progress >= 10) {
-                progress -= 10
-                viewModel.progressKcal = progress
-                updateProgressBar()
-            }
+            findNavController().navigate(R.id.action_homeFragment_to_editDefaultFragment)
         }
         btnHistory.setOnClickListener {
-//            findNavController().navigate(R.id.action_homeFragment_to_historyFragment)
-            progress = viewModel.progressKcal
-            if (progress < max) {
-                progress += 10
-                viewModel.progressKcal = progress
-                updateProgressBar()
-            }
+            findNavController().navigate(R.id.action_homeFragment_to_historyFragment)
         }
     }
 
-    fun updateProgressBar() = with(binding) {
-        progressBar.progress = viewModel.progressKcal
+    private fun updateProgressBar() = with(binding) {
+//        viewModel.progressKcal = 0
+        val progress : Int = viewModel.progressKcal
+        Log.d("resultA", "progress view model = ${viewModel.progressKcal}")
+        progressBar.progress = progress
+        Log.d("resultA", "progress bar = ${progressBar.progress}")
         progressBar.max = viewModel.defaultKcalText!!.toInt()
+        Log.d("resultA", "max HomeFragment = ${viewModel.defaultKcalText}")
         tvNumberCalories.text = viewModel.defaultKcalText
-    }
-
-    companion object {
-        var progress = 0
     }
 }

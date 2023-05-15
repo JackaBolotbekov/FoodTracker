@@ -1,5 +1,6 @@
 package com.example.presentation.ui.fragments.addproduct
 
+import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -7,6 +8,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.presentation.R
 import com.example.presentation.base.BaseFragment
 import com.example.presentation.databinding.FragmentAddProductBinding
+import com.example.presentation.ui.fragments.home.HomeFragment
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,6 +27,8 @@ class AddProductFragment :
         binding.swoosh.setOnClickListener {
             val message = binding.etProduct.text.toString()
             val kcalNumber = binding.etCcal.text.toString()
+            val kcalNumberInt = binding.etCcal.text.toString().trim().toInt()
+            val result = viewModel.progressKcal + kcalNumberInt
             if (message.isEmpty()) {
                 binding.etProduct.error = "Введите название продукта"
             } else if (kcalNumber.isEmpty()) {
@@ -32,6 +36,8 @@ class AddProductFragment :
             } else if (message == "/report") {
                 Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
             } else {
+                viewModel.progressKcal = result
+                Log.d("resultA", "progress Add Product = ${viewModel.progressKcal}")
                 sendMessage()
             }
         }
@@ -46,7 +52,6 @@ class AddProductFragment :
         val user = hashMapOf(
             "text" to textTitle, "message" to numberKcal, "time" to timeText
         )
-
         viewModel.userName?.let { db.collection(it).document().set(user).addOnSuccessListener {} }
         findNavController().navigateUp()
     }

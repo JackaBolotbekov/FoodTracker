@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1000">
+       <KeyFrameSet>
+           <KeyAttribute
+               motion:motionTarget="@+id/progress_bar"
+               motion:framePosition="100"
+               android:alpha="0" />
+           <KeyAttribute />
+           <KeyAttribute
+               motion:motionTarget="@+id/progress_bar"
+               motion:framePosition="100" />
+           <KeyAttribute
+               motion:motionTarget="@+id/progress_bar"
+               motion:framePosition="100"
+               android:scaleX="0" />
+           <KeyAttribute
+               motion:motionTarget="@+id/progress_bar"
+               motion:framePosition="100"
+               android:scaleY="0" />
+           <KeyAttribute
+               motion:motionTarget="@+id/tv_number_calories"
+               motion:framePosition="90"
+               android:alpha="0" />
+           <KeyAttribute
+               motion:motionTarget="@+id/tv_text_calories"
+               motion:framePosition="90"
+               android:alpha="0" />
+       </KeyFrameSet>
+        <OnSwipe
+            motion:touchAnchorId="@+id/progress_bar"
+            motion:touchAnchorSide="bottom" />
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:layout_height="1dp"
+            android:layout_width="1dp"
+            android:id="@+id/progress_bar"
+            motion:layout_editor_absoluteY="0dp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            motion:layout_constraintTop_toTopOf="@+id/progress_bar"
+            android:id="@+id/tv_number_calories"
+            motion:layout_editor_absoluteX="0dp"
+            android:alpha="0"/>
+        <Constraint
+            android:id="@+id/tv_text_calories"
+            motion:layout_constraintEnd_toEndOf="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintTop_toBottomOf="@+id/tv_number_calories"
+            motion:layout_constraintStart_toStartOf="@+id/progress_bar"
+            android:alpha="0" />
+    </ConstraintSet>
+</MotionScene>
