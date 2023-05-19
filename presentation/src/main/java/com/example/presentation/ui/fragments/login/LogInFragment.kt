@@ -20,8 +20,7 @@ class LogInFragment : BaseFragment<FragmentLogInBinding, LogInViewModel>(R.layou
     }
 
     private fun setOnClickListeners() = with(binding) {
-        val editText =
-            etLogin.text // если здесь написать toString.trim, то код неккоректно работает
+        val editText = etLogin.text // если здесь написать toString.trim, то код неккоректно работает
         val text = etLogin.text.toString().trim()
         btnSkip.setOnClickListener {
             if (editText.length >= 5) {

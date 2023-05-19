@@ -31,4 +31,5 @@
     <dimen name="height_iv_on_board">400dp</dimen>
     <dimen name="padding_6dp">6dp</dimen>
     <dimen name="dp_44">44sp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

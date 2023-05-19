@@ -13,4 +13,9 @@ class HistoryFragment :
 
     override val binding by viewBinding(FragmentHistoryBinding::bind)
     override val viewModel: HistoryViewModel by viewModels()
+//    private lateinit var homeAdapter: HomeAdapter
+//
+//    override fun initialize() = with(binding) {
+//        rvHistory.adapter = homeAdapter
+//    }
 }

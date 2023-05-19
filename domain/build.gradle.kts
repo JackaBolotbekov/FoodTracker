@@ -2,12 +2,15 @@ plugins {
     Plugins.apply {
         id(javaLibrary)
         id(kotlinJvm)
+        id(googleServices)
+
     }
 }
 
 dependencies {
     implementation(Dependencies.Coroutines.coroutines)
     implementation(Dependencies.Inject.inject)
+    implementation(Dependencies.Firebase.firestore)
 }
 
 java {

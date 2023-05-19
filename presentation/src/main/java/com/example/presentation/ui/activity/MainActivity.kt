@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             true -> {
                 navController.navigate(R.id.action_logInFragment_to_homeFragment)
             }
+
             else -> {
                 navController.navigate(R.id.pagerFragment)
             }

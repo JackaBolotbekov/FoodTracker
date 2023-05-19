@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/padding_main_container"
+    tools:context=".ui.fragments.delete.DeleteFragment">
+
+    <TextView
+        android:id="@+id/tv_new_entry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/dela_gothic_one"
+        android:text="@string/new_entry"
+        android:textColor="@color/black"
+        android:textSize="@dimen/size_text_title" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="@dimen/padding_vertical"
+        tools:ignore="UselessParent">
+
+        <View
+            android:id="@+id/cross"
+            android:layout_width="@dimen/view_add_product"
+            android:layout_height="@dimen/view_add_product"
+            android:layout_gravity="start"
+            android:background="@drawable/icon_cross" />
+
+        <View
+            android:id="@+id/swoosh"
+            android:layout_width="@dimen/view_add_product"
+            android:layout_height="@dimen/view_add_product"
+            android:layout_gravity="end"
+            android:background="@drawable/icon_swoosh" />
+
+    </FrameLayout>
+
+    <EditText
+        android:id="@+id/et_product"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/et_oval"
+        android:fontFamily="@font/comfortaa"
+        android:hint="@string/product_name"
+        android:inputType="textMultiLine|textCapSentences"
+        android:minWidth="@dimen/et_min_with"
+        android:minHeight="@dimen/et_min_height"
+        android:padding="@dimen/et_padding"
+        android:paddingVertical="@dimen/padding_vertical"
+        android:textColor="@color/gray"
+        android:textColorHint="@color/gray"
+        android:textSize="@dimen/et_text_size"
+        tools:ignore="LabelFor" />
+
+    <EditText
+        android:id="@+id/et_ccal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/margin_vertical"
+        android:background="@drawable/et_oval"
+        android:fontFamily="@font/comfortaa"
+        android:hint="@string/ccal"
+        android:inputType="number|textPassword|numberPassword"
+        android:minWidth="@dimen/et_min_with"
+        android:minHeight="@dimen/et_min_height"
+        android:padding="@dimen/et_padding"
+        android:paddingVertical="@dimen/padding_vertical"
+        android:textColor="@color/gray"
+        android:textColorHint="@color/gray"
+        android:textSize="@dimen/et_text_size"
+        tools:ignore="LabelFor" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom">
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginVertical="@dimen/margin_vertical"
+            android:background="@drawable/et_oval"
+            android:backgroundTint="@color/green"
+            android:fontFamily="@font/comfortaa"
+            android:paddingVertical="@dimen/padding_vertical"
+            android:text="@string/save"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="@dimen/btn_text_size" />
+
+    </FrameLayout>
+</LinearLayout>
