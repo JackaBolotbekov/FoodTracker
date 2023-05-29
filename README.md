@@ -6,7 +6,7 @@ input information such as name of the item, location where the item was found, a
 <br>
 <br>
 <p align="center">
-  <img src="![image](https://github.com/JackaBolotbekov/FoodTracker/assets/111832311/09b19936-c6b2-41d7-96e0-93b23b7c023c)" width="247">
+  <img src="https://github.com/JackaBolotbekov/FoodTracker/assets/111832311/09b19936-c6b2-41d7-96e0-93b23b7c023c" width="247">
   <img src="https://user-images.githubusercontent.com/57158277/170185853-5eb6608a-bc00-4d46-9451-a8068e121ec9.png" width="250">
   <img src="https://user-images.githubusercontent.com/57158277/170185876-4861bc82-bd17-4287-a1ba-0a0dbf8bbee3.png" width="250">
 </p>
