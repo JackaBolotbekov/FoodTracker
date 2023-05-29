@@ -6,9 +6,9 @@ input information such as name of the item, location where the item was found, a
 <br>
 <br>
 <p align="center">
-  <img src="https://github.com/JackaBolotbekov/FoodTracker/assets/111832311/09b19936-c6b2-41d7-96e0-93b23b7c023c" width="247">
-  <img src="https://user-images.githubusercontent.com/57158277/170185853-5eb6608a-bc00-4d46-9451-a8068e121ec9.png" width="250">
-  <img src="https://user-images.githubusercontent.com/57158277/170185876-4861bc82-bd17-4287-a1ba-0a0dbf8bbee3.png" width="250">
+  <img src="https://github.com/JackaBolotbekov/FoodTracker/assets/111832311/09b19936-c6b2-41d7-96e0-93b23b7c023c" width="250">
+  <img src="https://github.com/JackaBolotbekov/FoodTracker/assets/111832311/851ec07b-413d-457a-959f-cc74e423f34f" width="250">
+  <img src="https://github.com/JackaBolotbekov/FoodTracker/assets/111832311/a48126e2-7139-4146-ba82-bc02c564ee97" width="250">
 </p>
 <br>
 <br>
@@ -16,8 +16,7 @@ The user can view all the information about the foraged item by selecting that i
 <br>
 <br>
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/57158277/170204908-af0d63b4-bcc1-4557-844a-ba2974e430db.png" width="250">
-  <img src="https://user-images.githubusercontent.com/57158277/170205004-7250f886-a0d6-4366-a2de-1ed8cfaaddb1.png" width="250">
+  <img src="https://github.com/JackaBolotbekov/FoodTracker/assets/111832311/0cabe708-0bdb-4689-90dd-31972dde5a22" width="250">
 </p>
 <br>
 <br>
@@ -25,9 +24,17 @@ The user has the option to click on the FAB to edit the information and hit the 
 <br>
 <br>
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/57158277/170186202-aeb97304-fa39-4c7c-af92-e012ff759088.png" width="252">
-  <img src="https://user-images.githubusercontent.com/57158277/170186340-51bd09e8-d36b-4b11-acff-f537fc57af51.png" width="251">
-  <img src="https://user-images.githubusercontent.com/57158277/170186512-884744b0-d4d7-4cc8-a6e1-4cd5aac44551.png" width="250">
+  <img src="https://github.com/JackaBolotbekov/FoodTracker/assets/111832311/2f8c5737-ffb6-4bab-8909-e1626a0795a6" width="250">
+  <img src="https://github.com/JackaBolotbekov/FoodTracker/assets/111832311/040d9703-55bc-41f6-bfce-cf7697b081e6" width="250">
+</p>
+<br>
+<br>
+Other functional
+<br>
+<br>
+<p align="center">
+  <img src="https://github.com/JackaBolotbekov/FoodTracker/assets/111832311/6c162d43-3fcc-48d9-a16f-12453f361002" width="250">
+  <img src="https://github.com/JackaBolotbekov/FoodTracker/assets/111832311/0da568a0-080f-4eb9-97e6-7a5a92056acb" width="250">
 </p>
 <br>
 <br>
