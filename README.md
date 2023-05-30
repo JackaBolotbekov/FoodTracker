@@ -1,6 +1,5 @@
-# FoodTracker
+<h1 align="center"> # FoodTracker
 ==================================
-
 The Forage application allow users to keep track of items such as food that they've foraged in nature. The data the user manipulates is persistence between sessions thanks to the usage of Room Library. When the user first starts the app, they will be presented with a blank screen with a floating action button (FAB). The initial screen is blank since the user has not previously entered information about the items they have foraged. Clicking the FAB allows the user to 
 input information such as name of the item, location where the item was found, and additional notes about the item. There is also an option the users can select that tells the app whether or not the item is currently in season. Finally, once the user is ready to save the information, they can click on the save button to be redirected to the forage list screen where there new item will be displayed. 
 <br>
