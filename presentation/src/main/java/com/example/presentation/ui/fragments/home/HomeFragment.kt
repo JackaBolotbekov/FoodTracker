@@ -15,10 +15,13 @@ import com.example.presentation.base.BaseFragment
 import com.example.presentation.databinding.FragmentHomeBinding
 import com.example.presentation.model.FirebaseModel
 import com.example.presentation.ui.adapter.HomeAdapter
+import com.example.presentation.ui.fragments._notifycation.AlarmService
+import com.example.presentation.ui.fragments._notifycation.setAlarm
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.*
 
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fragment_home) {
@@ -29,6 +32,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
     private val db = Firebase.firestore
 
     override fun initialize() {
+//        setAlarm(requireContext())
         initial()
         getMessage()
         updateProgressBar()
@@ -39,6 +43,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
     }
 
     private fun initial() = with(binding) {
+        val currentTime = Calendar.getInstance().time
+        val targetTime = Calendar.getInstance().apply {
+            set(Calendar.HOUR_OF_DAY, AlarmService.HOUR_OF_DAY)
+            set(Calendar.MINUTE, AlarmService.MINUTE)
+            set(Calendar.SECOND, 0)
+        }.time
+
+        if (currentTime.before(targetTime)) {
+            setAlarm(requireContext())
+        }
         rvHome.adapter = homeAdapter
         btnGrid.setOnClickListener {
             rvHome.layoutManager = LinearLayoutManager(requireContext())

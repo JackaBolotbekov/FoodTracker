@@ -63,7 +63,7 @@
         android:background="@drawable/et_oval"
         android:fontFamily="@font/comfortaa"
         android:hint="@string/ccal"
-        android:inputType="number|textPassword|numberPassword"
+        android:inputType="number"
         android:minWidth="@dimen/et_min_with"
         android:minHeight="@dimen/et_min_height"
         android:padding="@dimen/et_padding"
