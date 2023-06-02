@@ -18,7 +18,6 @@ class HomeViewModel @Inject constructor(
 
     private val _noteLiveData2 = MutableLiveData<MutableList<FirebaseModel>>()
     val noteLiveData2: LiveData<MutableList<FirebaseModel>> = _noteLiveData2
-
     private val noteList2 = mutableListOf<FirebaseModel>()
 
     fun setModels2(list: MutableList<FirebaseModel>) {

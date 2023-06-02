@@ -1,34 +1,68 @@
 package com.example.presentation.ui.fragments._notifycation
 
-import android.app.AlarmManager
-import android.app.PendingIntent
-import android.content.Context
-import android.content.Intent
 import android.os.Build
+import android.util.Log
+import androidx.annotation.RequiresApi
+import com.google.firebase.Timestamp
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
+import java.time.LocalDate
+import java.time.ZoneId
 import java.util.*
 
-fun setAlarm(context: Context) {
-    val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-    val intent = Intent(context, AlarmService::class.java)
-    val pendingIntent = PendingIntent.getService(context, 0, intent, 0)
+@RequiresApi(Build.VERSION_CODES.O)
+fun setAlarmService(username: String?, progress : Int) {
 
-    val calendar = Calendar.getInstance()
-    calendar.set(Calendar.HOUR_OF_DAY, AlarmService.HOUR_OF_DAY)
-    calendar.set(Calendar.MINUTE, AlarmService.MINUTE)
-    calendar.set(Calendar.SECOND, 0)
-    calendar.set(Calendar.MILLISECOND, 0)
+    val firestore = FirebaseFirestore.getInstance()
+    val timestamp = Timestamp.now()
+    val currentDate = LocalDate.now()
+    val collectionRef = firestore.collection(username!!)
+    collectionRef.orderBy("date", Query.Direction.DESCENDING).limit(1)
+        .get()
+        .addOnSuccessListener { documentSnapshot ->
+            if (!documentSnapshot.isEmpty) {
+                val documentSnapshots = documentSnapshot.documents[0]
+                val storedDate = documentSnapshots.getDate("date")
+                val storedLocalDate =
+                    storedDate?.toInstant()?.atZone(ZoneId.systemDefault())?.toLocalDate()
+                Log.d("time", "now = $currentDate")
+                Log.d("time", "firebase = " + storedLocalDate.toString())
 
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-        alarmManager.setExactAndAllowWhileIdle(
-            AlarmManager.RTC_WAKEUP,
-            calendar.timeInMillis,
-            pendingIntent
-        )
-    } else {
-        alarmManager.setExact(
-            AlarmManager.RTC_WAKEUP,
-            calendar.timeInMillis,
-            pendingIntent
-        )
-    }
+                // Сравнение даты и времени
+                if (currentDate != storedLocalDate) {
+
+                    val data = hashMapOf(
+                        "calories" to progress.toString(),
+                        "time" to storedLocalDate.toString(),
+                        "date" to timestamp
+                    )
+
+                    firestore.collection(username + "_history")
+                        .add(data)
+                        .addOnSuccessListener { documentReference ->
+                            // Документ успешно добавлен
+                            val documentId = documentReference.id
+                            Log.d("MyService", "Document added with ID: $documentId")
+                            if (username != null) {
+                                firestore.collection(username).get()
+                                    .addOnSuccessListener { querySnapshot ->
+                                        for (document in querySnapshot) {
+                                            document.reference.delete()
+                                        }
+                                    }
+                                    .addOnFailureListener { exception ->
+                                        Log.d("failure", "Error getting documents HISTORY: ", exception)
+                                    }
+                            }
+                        }
+                        .addOnFailureListener { e ->
+                            // Ошибка при добавлении документа
+                            Log.e("MyService", "Error adding document", e)
+                        }
+                }
+            }
+        }
+        .addOnFailureListener { exception ->
+            Log.d("failure", "Error getting documents HISTORY: ", exception)
+        }
 }

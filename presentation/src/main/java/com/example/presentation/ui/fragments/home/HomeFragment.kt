@@ -1,27 +1,18 @@
 package com.example.presentation.ui.fragments.home
 
 import android.util.Log
-import androidx.core.view.isGone
-import androidx.core.view.isInvisible
-import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.presentation.R
 import com.example.presentation.base.BaseFragment
 import com.example.presentation.databinding.FragmentHomeBinding
 import com.example.presentation.model.FirebaseModel
 import com.example.presentation.ui.adapter.HomeAdapter
-import com.example.presentation.ui.fragments._notifycation.AlarmService
-import com.example.presentation.ui.fragments._notifycation.setAlarm
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.*
 
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fragment_home) {
@@ -32,8 +23,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
     private val db = Firebase.firestore
 
     override fun initialize() {
-//        setAlarm(requireContext())
-        initial()
+//        initial()
+        binding.rvHome.adapter = homeAdapter
         getMessage()
         updateProgressBar()
     }
@@ -42,7 +33,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
         click()
     }
 
-    private fun initial() = with(binding) {
+  /*  private fun initial() = with(binding) {
         val currentTime = Calendar.getInstance().time
         val targetTime = Calendar.getInstance().apply {
             set(Calendar.HOUR_OF_DAY, AlarmService.HOUR_OF_DAY)
@@ -66,12 +57,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
             btnLinear.isGone = true
             btnGrid.isGone = false
         }
-    }
+    }*/
 
     private fun getMessage() {
         viewModel.userName?.let { userName ->
             db.collection(userName).document().addSnapshotListener { _, _ ->
-                val f = db.collection(userName).orderBy("time", Query.Direction.DESCENDING).get()
+                val f = db.collection(userName).orderBy("date", Query.Direction.ASCENDING).get()
                 f.addOnSuccessListener { data ->
                     val message = data.toObjects(FirebaseModel::class.java)
                     viewModel.setModels2(message)
