@@ -17,5 +17,4 @@ class AlarmService : Service() {
         stopSelf() // Остановка сервиса после выполнения операций
         return START_NOT_STICKY
     }
-
 }

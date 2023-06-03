@@ -1,5 +1,7 @@
 package com.example.presentation.ui.adapter
 
+import android.annotation.SuppressLint
+import android.util.Log
 import android.view.ViewGroup
 import android.view.LayoutInflater
 import androidx.recyclerview.widget.DiffUtil
@@ -11,9 +13,12 @@ import com.example.presentation.model.FirebaseHistoryModel
 class HistoryAdapter : ListAdapter<FirebaseHistoryModel, HistoryAdapter.ViewHolder>(diffUtil) {
     inner class ViewHolder(private val binding: ItemHistoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
+        @SuppressLint("SetTextI18n")
         fun onBind(model: FirebaseHistoryModel) {
-            binding.tvCaloriesItemHistory.text = model.text
+            binding.tvCaloriesItemHistory.text = model.calories + " ккалорий"
+            model.calories?.let { Log.d("model", it) }
             binding.tvDateItemHistory.text = model.time
+            model.time?.let { Log.d("model", it) }
         }
     }
 
